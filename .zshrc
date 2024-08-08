@@ -39,3 +39,4 @@ export PATH="$PATH:/home/simon/.local/bin"
 
 alias ff="fastfetch"
 alias ls="eza -a --color=always --icons=always"
+alias vim=nvim
