@@ -5,7 +5,7 @@ export ZSH="$HOME/.oh-my-zsh"
 
 #ZSH_THEME="xiong-chiamiov-plus"
 #ZSH_THEME="cloud"
-ZSH_THEME="custom-refined"
+ZSH_THEME="refined"
 
 plugins=( 
     git
@@ -40,3 +40,7 @@ export PATH="$PATH:/home/simon/.local/bin"
 alias ff="fastfetch"
 alias ls="eza -a --color=always --icons=always"
 alias vim=nvim
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
