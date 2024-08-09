@@ -41,6 +41,9 @@ main() {
         5)
             $tty $editor "$UserConfigs/Monitors.conf"
             ;;
+         6)
+	          "/bin/qwinff"
+            ;;
         7)
             $tty $editor "$UserConfigs/Laptops.conf"
             ;;
@@ -50,18 +53,15 @@ main() {
         9)
             $tty $editor "$UserConfigs/WorkspaceRules.conf"
             ;;
-	10)
+	      10)
             $tty $editor "$configs/Settings.conf"
             ;;
         11)
             $tty $editor "$configs/Keybinds.conf"
             ;;
-	6)
-	     "/bin/qwinff"
-	    ;;
-	12)
-	    $tty $editor "$HOME/tips.txt"
-	    ;;
+	      12)
+	          $tty $editor "$HOME/.generalNotes.txt"
+	          ;;  
         *)
             ;;
     esac
