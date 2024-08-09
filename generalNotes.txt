@@ -1,0 +1,6 @@
+Convert files with qwinff
+Save Waybar
+#save tips
+save ~/.config/hypr/UserScripts/QuickEdit.sh
+write script to install nvim with NvChad git clone https://github.com/NvChad/starter ~/.config/nvim 
+
