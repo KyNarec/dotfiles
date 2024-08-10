@@ -6,29 +6,24 @@ This directory contains the dotfiles for my system
 
 Ensure you have the following installed on your system
 
-### Git
+### git
 
 ```
-pacman -S git
-```
-
-### Stow
+sudo pacman -S git
 
 ```
-pacman -S stow
-```
+
+### JaKooLit Hyprland dotfiles 
+
+[`Hyprland-Dots`](https://github.com/JaKooLit/Hyprland-Dots)
 
 ## Installation
 
-First, check out the dotfiles repo in your $HOME directory using git
+Clone this repository and execute the installation script
 
 ```
-git clone git@github.com:Simon-Sonnleitner/dotfiles.git
+git clone --depth=1 https://github.com/Simon-Sonnleitner/dotfiles.git ~/dotfiles
 cd dotfiles
-```
-
-then use GNU stow to create symlinks
-
-```
-stow .
+chmod +x install.sh 
+./install.sh
 ```
