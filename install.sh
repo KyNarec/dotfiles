@@ -1,17 +1,27 @@
 #!/bin/bash
-install_packages=(
+install_pacman=(
 neovim
-qwinff
 nemo
 stow
+btop
+yay
+)
+
+install_yay=(
+qwinff  
 )
 
 sudo pacman -Sy
 
 for PKG1 in "${install_packages[@]}"; do
-sudo pacman -S "$PKG1"
+  sudo pacman -S "$PKG1"
 done
 
+for PKG1 in "${install_yay[@]}"; do 
+  yay -S "$PKG1"
+done
+
+rm ~/.config/btop/btop.conf
 rm ~/.config/hypr/configs/Keybinds.conf
 rm ~/.zshrc
 rm ~/.config/hypr/UserScripts/QuickEdit.sh
@@ -21,11 +31,10 @@ rm -r ~/.config/nvim/
 cd $HOME
 git clone https://github.com/NvChad/starter ~/.config/nvim
 nvim
-sleep 60
+#sleep 60
 pkill nvim
 rm ~/.config/nvim/lua/plugins/init.lua
 rm ~/.config/nvim/lua/chadrc.lua
-cd
 # waybar config files
 rm ~/.config/waybar/configs/\[TOP\]\ Default_v3
 rm ~/.config/waybar/configs/\[TOP\]\ Default\ Laptop_v2
