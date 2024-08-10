@@ -40,6 +40,8 @@ export PATH="$PATH:/home/simon/.local/bin"
 alias ff="fastfetch"
 alias ls="eza -a --color=always --icons=always"
 alias vim=nvim
+alias commit="git commit -a -m" 
+alias push="git push origin main"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
