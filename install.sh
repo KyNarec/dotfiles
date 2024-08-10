@@ -8,10 +8,12 @@ yay
 networkmanager
 fzf
 eza
+ffmpeg
 )
 
 install_yay=(
-qwinff  
+qwinff
+vesktop
 )
 
 sudo pacman -Sy
