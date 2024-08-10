@@ -10,7 +10,6 @@ Ensure you have the following installed on your system
 
 ```
 sudo pacman -S git
-
 ```
 
 ### JaKooLit Hyprland dotfiles 

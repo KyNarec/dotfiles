@@ -1,5 +1,5 @@
 #!/bin/bash
-bashinstall_packages=(
+install_packages=(
 neovim
 qwinff
 nemo
