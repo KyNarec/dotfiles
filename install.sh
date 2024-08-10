@@ -8,11 +8,10 @@ yay
 networkmanager
 fzf
 eza
-#zsh-syntax-highlighting
 )
 
 install_yay=(
-#qwinff  
+qwinff  
 )
 
 sudo pacman -Sy
@@ -27,6 +26,8 @@ done
 
 rm ~/.config/btop/btop.conf
 rm ~/.config/hypr/configs/Keybinds.conf
+rm ~/.config/hypr/UserConfigs/UserSettings.conf
+# ZSH and oh-my-zsh
 rm ~/.zshrc
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
