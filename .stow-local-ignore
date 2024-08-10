@@ -22,6 +22,10 @@ _darcs
 ^/LICENSE.*
 ^/COPYING
 
-#Install Scripts
+#waybar configs
+/.config/waybar/configs/\[TOP\]\ Default_v3
+/.config/waybar/configs/\[TOP\]\ Default\ Laptop_v2
+
+#install Scripts
 ^/test.sh
 ^/install.sh
