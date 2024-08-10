@@ -5,16 +5,20 @@ nemo
 stow
 btop
 yay
+networkmanager
+fzf
+eza
+zsh-syntax-highlighting
 )
 
 install_yay=(
-qwinff  
+#qwinff  
 )
 
 sudo pacman -Sy
 
 for PKG1 in "${install_packages[@]}"; do
-  sudo pacman -S "$PKG1"
+  sudo pacman -S "$PKG1" 2>&1
 done
 
 for PKG1 in "${install_yay[@]}"; do 
@@ -24,6 +28,7 @@ done
 rm ~/.config/btop/btop.conf
 rm ~/.config/hypr/configs/Keybinds.conf
 rm ~/.zshrc
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 rm ~/.config/hypr/UserScripts/QuickEdit.sh
 # NvChad
 mkdir ~/.config/nvim/
@@ -43,3 +48,4 @@ cp ~/dotfiles/.config/waybar/configs/\[TOP\]\ Default_v3 ~/.config/waybar/config
 cp ~/dotfiles/.config/waybar/configs/\[TOP\]\ Default\ Laptop_v2 ~/.config/waybar/configs/
 
 cd ~/dotfiles && stow .
+echo -e "Installation Completed"
