@@ -29,3 +29,4 @@ _darcs
 #install Scripts
 ^/test.sh
 ^/install.sh
+^/sshd_config

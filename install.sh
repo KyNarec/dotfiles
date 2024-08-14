@@ -14,6 +14,7 @@ ffmpeg
 install_yay=(
 qwinff
 vesktop
+brave-bin
 )
 
 sudo pacman -Sy
@@ -57,4 +58,11 @@ echo -e "Now configuring Wifi"
 sudo systemctl start NetworkManager 
 sudo systemctl status NetworkManager
 sudo nmcli r wifi on
-
+echo -e "configured Wifi"
+echo -e "configuring ssh to listen on port 123"
+sudo systemctl start sshd.service
+sudo systemctl status sshd.service
+sudo rm /etc/ssh/sshd_config
+sudo cp ~/dotfiles/sshd_config /etc/ssh/
+sudo systemctl restart sshd.service
+echo -e "configured ssh"
