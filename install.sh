@@ -45,6 +45,7 @@ nvim
 pkill nvim
 rm ~/.config/nvim/lua/plugins/init.lua
 rm ~/.config/nvim/lua/chadrc.lua
+rm ~/.config/nvim/init.lua
 # waybar config files
 rm ~/.config/waybar/configs/\[TOP\]\ Default_v3
 rm ~/.config/waybar/configs/\[TOP\]\ Default\ Laptop_v2
