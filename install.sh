@@ -53,3 +53,8 @@ cp ~/dotfiles/.config/waybar/configs/\[TOP\]\ Default\ Laptop_v2 ~/.config/wayba
 
 cd ~/dotfiles && stow .
 echo -e "Installation Completed"
+echo -e "Now configuring Wifi"
+sudo systemctl start NetworkManager 
+sudo systemctl status NetworkManager
+sudo nmcli r wifi on
+
