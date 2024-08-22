@@ -9,6 +9,8 @@ networkmanager
 fzf
 eza
 ffmpeg
+zip
+unzip
 )
 
 install_yay=(

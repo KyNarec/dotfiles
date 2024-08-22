@@ -32,7 +32,7 @@ require('nvim-tree').setup {
 }
 
 -- autosave
-vim.cmd([[autocmd TextChanged,TextChangedI * silent! write]])
+--vim.cmd([[autocmd TextChanged,TextChangedI * silent! write]])
 
 -- load theme
 dofile(vim.g.base46_cache .. "defaults")

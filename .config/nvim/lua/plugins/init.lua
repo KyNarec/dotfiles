@@ -1,3 +1,5 @@
+local overrides = require ("configs.overrides")
+
 return {
   {
     "stevearc/conform.nvim",
@@ -10,6 +12,8 @@ return {
     "neovim/nvim-lspconfig",
     config = function()
       require "configs.lspconfig"
+      --require ("configs.lsp")
+			require("nvchad.configs.lspconfig").defaults() -- nvchad defaults for lua
     end,
   },
 
@@ -22,4 +26,13 @@ return {
   -- 		},
   -- 	},
   -- },
+
+  -- overrde plugin configs
+  ["nvim-treesitter/nvim-treesitter"] = {
+    override_options = overrides.treesitter,
+  },
+
+  ["williamboman/mason.nvim"] = {
+    override_options = overrides.mason,
+  },
 }
