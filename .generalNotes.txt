@@ -2,3 +2,6 @@ Convert files with qwinff
 [TOP] Default_v3
 [TOP] Default Laptop_v2
 [Wallust Transparent] Crystal Clear.css
+
+yay -S libcs50
+yay -S python-cs50
