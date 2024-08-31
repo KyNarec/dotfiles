@@ -5,3 +5,8 @@ Convert files with qwinff
 
 yay -S libcs50
 yay -S python-cs50
+
+for i3 config:
+  yay -S feh
+  yay -S polybar
+  https://askubuntu.com/questions/1122513/ press gx
