@@ -5,7 +5,7 @@ Convert files with qwinff
 
 yay -S libcs50
 yay -S python-cs50
-
+sdfhsdfh
 for i3 config:
   yay -S feh
   yay -S polybar
