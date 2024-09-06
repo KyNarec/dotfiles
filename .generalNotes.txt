@@ -10,3 +10,19 @@ for i3 config:
   yay -S feh
   yay -S polybar
   https://askubuntu.com/questions/1122513/ press gx
+
+
+protontricks -c 'wine ~/Downloads/2024_TTRS_1.exe' 2108330
+steam steam://rungameid/960090  #bloons
+
+If kvm default network not online
+  
+  sudo systemctl start systemd-resolved
+  sudo systemctl start libvirtd
+  sudo virsh net-list --all
+  sudo virsh net-start default
+
+Install Win11 in VM
+in language press SHIFT+F10
+"OOBE\BYPASSNRO"
+should restart after
