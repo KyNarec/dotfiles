@@ -76,11 +76,11 @@ bindsym $mod+d exec pkill rofi || rofi -show drun -modi drun
 bindsym $mod+l i3lock -i ~/Pictures/wallpapers/Under_Starlit_Sky.png
 
 # change volume and brightness
-bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+
-bindsym XF86AudioLowerVolume exec amixer -q set Master 5%-
-bindsym XF86AudioMute exec amixer set Master toggle
-bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
-bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+#bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+
+#bindsym XF86AudioLowerVolume exec amixer -q set Master 5%-
+#bindsym XF86AudioMute exec amixer set Master toggle
+#bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
+#bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -212,10 +212,10 @@ bar {
           separator #141c21
         
         # color of border, background, and text
-        focus_workspace #141c21 #d12f2c #93a1a1  
-        active_workspace #141c21 #d12f2c #93a1a1  
-        inactive_workspace #141c21 #d12f2c #93a1a1  
-        urgent_workspace #141c21 #b08500 #93a1a1  
+        #focus_workspace #141c21 #d12f2c #93a1a1  
+        #active_workspace #141c21 #d12f2c #93a1a1  
+        #inactive_workspace #141c21 #d12f2c #93a1a1  
+        #urgent_workspace #141c21 #b08500 #93a1a1  
         }
 }
 
