@@ -26,3 +26,8 @@ Install Win11 in VM
 in language press SHIFT+F10
 "OOBE\BYPASSNRO"
 should restart after
+
+convert .ova to qcow2
+tar -xvf <ova_file>.ova
+qemu-img convert -f vmdk -O qcow2 disk001.vmdk output.qcow2
+Open virt-manager and create a new virtual machine. Select “Customize configuration before install” and add the QCOW2 image as the disk.
