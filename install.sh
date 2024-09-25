@@ -19,11 +19,11 @@ vesktop
 brave-bin
 )
 
-read -p "$(tput sefat 6)Do you want to configure Wifi?(y/n)$(tput srg0)" wifi
+read -p "$(tput setaf 6)Do you want to configure Wifi?(y/n)$(tput sgr0)" wifi
 
 # Pacman candy etc.
-mv -f ~/dotfiles/pacman.conf /etc/
-mv -f ~/dotfiles/makepkg.conf /etc/
+sudo mv -f ~/dotfiles/pacman.conf /etc/
+sudo mv -f ~/dotfiles/makepkg.conf /etc/
 
 sudo pacman -Syyu --noconfirm
 
@@ -67,22 +67,22 @@ cp ~/dotfiles/.config/waybar/configs/\[TOP\]\ Default\ Laptop_v2 ~/.config/wayba
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 cd ~/dotfiles && stow .
-echo -e "$(tput sefat 2)Installation Completed\n$(tput srg0)"
+echo -e "$(tput sefat 2)Installation Completed\n$(tput sgr0)"
 
 # Wifi
 if [ "$wifi" != "y" ]; then
-echo -e "$(tput sefat 2)Installing NetworkManager\n$(tput srg0)"
+echo -e "$(tput setaf 2)Installing NetworkManager\n$(tput sgr0)"
 sudo pacman -S --noconfirm networkmanager
-echo -e "$(tput sefat 2)Now configuring Wifi\n$(tput srg0)"
+echo -e "$(tput setaf 2)Now configuring Wifi\n$(tput sgr0)"
 sudo systemctl start NetworkManager 
 sudo nmcli r wifi on
-echo -e "$(tput sefat 2)Configured Wifi\n$(tput srg0)"
+echo -e "$(tput setaf 2)Configured Wifi\n$(tput sgr0)"
 fi
 
 # SSH
-echo -e "$(tput sefat 2)Configuring ssh to listen on port 123\n$(tput srg0)"
+echo -e "$(tput setaf 2)Configuring ssh to listen on port 123\n$(tput sgr0)"
 sudo systemctl start sshd.service
 sudo rm /etc/ssh/sshd_config
 sudo cp ~/dotfiles/sshd_config /etc/ssh/
 sudo systemctl restart sshd.service
-echo -e "$(tput sefat 2)Configured ssh\n$(tput srg0)
+echo -e "$(tput setaf 2)Configured ssh\n$(tput sgr0)"
