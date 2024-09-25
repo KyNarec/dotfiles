@@ -41,10 +41,13 @@ alias ff="fastfetch"
 alias ls="eza -a --color=always --icons=always"
 alias vim=nvim
 alias v=nvim
+alias pull="git pull origin main"
 alias commit="git add . && git commit -a -m" 
 alias push="git push origin main"
 alias c="clear"
 alias update="sudo pacman -Syyu"
+alias t="tmux"
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
