@@ -119,6 +119,9 @@ local plugins = {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
+        ---bash
+        "bash-language-server",
+
         --- python
         "black",
         "debugpy",

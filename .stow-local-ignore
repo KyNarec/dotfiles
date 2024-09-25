@@ -30,3 +30,5 @@ _darcs
 ^/test.sh
 ^/install.sh
 ^/sshd_config
+^/makepkg.conf
+^/pacman.conf
