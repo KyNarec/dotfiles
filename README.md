@@ -1,6 +1,6 @@
 # My dotfiles
 
-This directory contains the dotfiles for my system
+This directory contains the dotfiles for my Arch-Hyprland system
 
 ## Requirements
 

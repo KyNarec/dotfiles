@@ -44,7 +44,13 @@ alias v=nvim
 alias commit="git add . && git commit -a -m" 
 alias push="git push origin main"
 alias c="clear"
-
+alias update="sudo pacman -Syyu"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+## [Completion]
+## Completion scripts setup. Remove the following line to uninstall
+[[ -f /home/simon/.dart-cli-completion/zsh-config.zsh ]] && . /home/simon/.dart-cli-completion/zsh-config.zsh || true
+## [/Completion]
+
