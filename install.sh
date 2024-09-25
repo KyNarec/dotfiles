@@ -44,13 +44,14 @@ rm ~/.config/hypr/UserScripts/QuickEdit.sh
 mkdir ~/.config/nvim/
 rm -r ~/.config/nvim/
 cd $HOME
-git clone https://github.com/NvChad/starter ~/.config/nvim
+git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
 nvim
 #sleep 60
 pkill nvim
-rm ~/.config/nvim/lua/plugins/init.lua
-rm ~/.config/nvim/lua/chadrc.lua
-rm ~/.config/nvim/init.lua
+#rm ~/.config/nvim/lua/plugins/init.lua
+#rm ~/.config/nvim/lua/chadrc.lua
+#rm ~/.config/nvim/init.lua
+rm -r ~/.config/nvim/
 
 # waybar config files
 rm ~/.config/waybar/configs/\[TOP\]\ Default_v3
