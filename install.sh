@@ -22,8 +22,8 @@ brave-bin
 read -p "$(tput setaf 6)Do you want to configure Wifi?(y/n)$(tput sgr0)" wifi
 
 # Pacman candy etc.
-sudo mv -f ~/dotfiles/pacman.conf /etc/
-sudo mv -f ~/dotfiles/makepkg.conf /etc/
+sudo cp -f ~/dotfiles/pacman.conf /etc/
+sudo cp -f ~/dotfiles/makepkg.conf /etc/
 
 sudo pacman -Syyu --noconfirm
 
@@ -67,12 +67,14 @@ cp ~/dotfiles/.config/waybar/configs/\[TOP\]\ Default\ Laptop_v2 ~/.config/wayba
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 cd ~/dotfiles && stow .
-echo -e "$(tput sefat 2)Installation Completed\n$(tput sgr0)"
+echo
+echo -e "$(tput setaf 2)Installation Completed\n$(tput sgr0)"
 
 # Wifi
 if [ "$wifi" != "y" ]; then
 echo -e "$(tput setaf 2)Installing NetworkManager\n$(tput sgr0)"
 sudo pacman -S --noconfirm networkmanager
+echo
 echo -e "$(tput setaf 2)Now configuring Wifi\n$(tput sgr0)"
 sudo systemctl start NetworkManager 
 sudo nmcli r wifi on
