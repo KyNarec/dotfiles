@@ -15,6 +15,17 @@ M.dap = {
   }
 }
 
+M.java = {
+  plugin = true,
+  n = {
+    ["<leader>jr"] = {
+      function ()
+        require('java').runner.built_in.run_app({})
+      end
+    },
+  }
+}
+
 M.dap_python = {
   plugin = true,
   n = {

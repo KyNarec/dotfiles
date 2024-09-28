@@ -6,6 +6,37 @@ local plugins = {
     "nvim-neotest/nvim-nio",
   },
 
+    --- JAVA
+  {
+    "nvim-java/nvim-java",
+    config = false,
+    dependencies = {
+      "neovim/nvim-lspconfig",
+      opts = {
+        servers = {
+          jdtls = {
+
+          },
+        },
+        setup = {
+          jdtls = function ()
+            require("java").setup({
+              java_test = {
+                enable = true,
+              },
+              java_debug_adapter = {
+                enable = true,
+              },
+              jdk = {
+                auto_install = true,
+              }
+            })
+          end,
+        },
+      },
+    },
+  },
+
   {
     "rcarriga/nvim-dap-ui",
     dependencies = "mfussenegger/nvim-dap",
