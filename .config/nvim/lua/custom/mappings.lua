@@ -15,7 +15,7 @@ M.dap = {
   }
 }
 
-M.java = {
+M.dap_java = {
   plugin = true,
   n = {
     ["<leader>jr"] = {

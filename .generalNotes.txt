@@ -1,3 +1,7 @@
+#######################################################
+#!!!!!! NEVER CHANGE ANYTHING IN THE GTK SETTINGS !!!!#
+#######################################################
+
 Convert files with qwinff
 [TOP] Default_v3
 [TOP] Default Laptop_v2

@@ -11,27 +11,34 @@ local plugins = {
     "nvim-java/nvim-java",
     config = false,
     dependencies = {
-      "neovim/nvim-lspconfig",
+      'nvim-java/lua-async-await',
+      'nvim-java/nvim-java-core',
+      'nvim-java/nvim-java-test',
+      'nvim-java/nvim-java-dap',
+      'MunifTanjim/nui.nvim',
+      'neovim/nvim-lspconfig',
+      'mfussenegger/nvim-dap',
+      "jay-babu/mason-nvim-dap.nvim",
       opts = {
-        servers = {
-          jdtls = {
-
+          servers = {
+            jdtls = {
           },
-        },
-        setup = {
-          jdtls = function ()
-            require("java").setup({
-              java_test = {
+          setup = {
+            jdtls = function ()
+              require("java").setup({
+                java_home = "/usr/lib64/jvm/java-22-openjdk/bin/java",
+                java_test = {
                 enable = true,
-              },
-              java_debug_adapter = {
+                },
+                java_debug_adapter = {
                 enable = true,
-              },
-              jdk = {
-                auto_install = true,
-              }
-            })
-          end,
+                },
+                spring_boot_tools = {
+                enable = true,
+                },
+              })
+            end,
+          },
         },
       },
     },
@@ -150,7 +157,13 @@ local plugins = {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
-        ---bash
+        --- java
+        "jdtls",
+        "java-test",
+        "java-debug-adapter",
+        "openjdk-23",
+
+        --- bash
         "bash-language-server",
 
         --- python
@@ -177,6 +190,7 @@ local plugins = {
       require "plugins.configs.lspconfig"
       require "custom.configs.lspconfig"
     end,
+    require('lspconfig').jdtls.setup({})
   },
 
   {
@@ -188,7 +202,8 @@ local plugins = {
         "cpp",
         "lua",
         "rust",
-      }
+        "java",
+      },
     },
 	},
 }
