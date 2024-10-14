@@ -35,3 +35,8 @@ convert .ova to qcow2
 tar -xvf <ova_file>.ova
 qemu-img convert -f vmdk -O qcow2 disk001.vmdk output.qcow2
 Open virt-manager and create a new virtual machine. Select “Customize configuration before install” and add the QCOW2 image as the disk.
+
+csgo crosshair
+CSGO-hVS26-Ejwaj-zQMWr-r2dTG-octOH # Aqua dot
+CSGO-sUpFm-EFCnF-daCCK-Bas7z-CBAMK # Black small cross
+CSGO-sPbxV-9qXma-5TxGJ-UMJfo-CPVGQ # Aqua cross
