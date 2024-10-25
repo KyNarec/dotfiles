@@ -20,6 +20,7 @@ brave-bin
 )
 
 read -p "$(tput setaf 6)Do you want to configure Wifi?(y/n)$(tput sgr0)" wifi
+read -p "$(tput setaf 6)Do you want to install fstab file?(y/n)$(tput sgr0)" f 
 
 # Pacman candy etc.
 sudo cp -f ~/dotfiles/pacman.conf /etc/
@@ -79,6 +80,12 @@ echo -e "$(tput setaf 2)Now configuring Wifi\n$(tput sgr0)"
 sudo systemctl start NetworkManager 
 sudo nmcli r wifi on
 echo -e "$(tput setaf 2)Configured Wifi\n$(tput sgr0)"
+fi
+
+# fstab
+if [ "$f" != "y"]; then
+  echo -e "$(tput setaf 2)Copying fstab file\n$(tput sgr0)"
+  cp -f ~/dotfiles/fstab /etc/ 
 fi
 
 # SSH

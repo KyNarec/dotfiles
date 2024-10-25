@@ -2,7 +2,7 @@
 #!!!!!! NEVER CHANGE ANYTHING IN THE GTK SETTINGS !!!!#
 #######################################################
 
-Convert files with qwinff
+# Convert files with qwinff
 [TOP] Default_v3
 [TOP] Default Laptop_v2
 [Wallust Transparent] Crystal Clear.css
@@ -10,7 +10,7 @@ Convert files with qwinff
 yay -S libcs50
 yay -S python-cs50
 sdfhsdfh
-for i3 config:
+# for i3 config:
   yay -S feh
   yay -S polybar
   https://askubuntu.com/questions/1122513/ press gx
@@ -19,24 +19,152 @@ for i3 config:
 protontricks -c 'wine ~/Downloads/2024_TTRS_1.exe' 2108330
 steam steam://rungameid/960090  #bloons
 
-If kvm default network not online
+# If kvm default network not online
   
   sudo systemctl start systemd-resolved
   sudo systemctl start libvirtd
   sudo virsh net-list --all
   sudo virsh net-start default
 
-Install Win11 in VM
+# Install Win11 in VM
 in language press SHIFT+F10
 "OOBE\BYPASSNRO"
 should restart after
 
-convert .ova to qcow2
+# convert .ova to qcow2
 tar -xvf <ova_file>.ova
 qemu-img convert -f vmdk -O qcow2 disk001.vmdk output.qcow2
 Open virt-manager and create a new virtual machine. Select “Customize configuration before install” and add the QCOW2 image as the disk.
 
-csgo crosshair
+# to open files in nvim let nemo execute this command
+kitty -e 'nvim' %f  
+
+# csgo crosshair
 CSGO-hVS26-Ejwaj-zQMWr-r2dTG-octOH # Aqua dot
 CSGO-sUpFm-EFCnF-daCCK-Bas7z-CBAMK # Black small cross
 CSGO-sPbxV-9qXma-5TxGJ-UMJfo-CPVGQ # Aqua cross
+
+### Trying to solve slow startup times
+
+[2024-07-07T20:24:43+0200] [ALPM] upgraded python-validate-pyproject (0.16-1 -> 0.18-1)
+[2024-08-31T16:55:15+0200] [ALPM] upgraded python-validate-pyproject (0.18-1 -> 0.19-1)
+[2024-10-08T16:34:23+0200] [ALPM] upgraded python-validate-pyproject (0.19-1 -> 0.20.2-1)
+[2024-10-09T15:53:55+0200] [ALPM] upgraded python-pyproject-hooks (1.1.0-1 -> 1.2.0-1)
+Oct 17 15:49:55 archlinux systemd[868]: Starting Virtual filesystem service...
+Oct 17 15:50:02 archlinux systemd[868]: Started Virtual filesystem service.
+
+Oct 17 15:50:09 archlinux systemd[868]: Started dbus-:1.4-org.kde.kwalletd5@0.service.
+Oct 17 15:50:16 archlinux systemd[868]: Started dbus-:1.4-org.kde.kwalletd5@1.service.
+
+Oct 17 15:50:19 archlinux systemd[1]: Starting Daemon for power management...
+Oct 17 15:50:22 archlinux systemd[1]: Started Daemon for power management.
+
+sudo systemctl disable upower.service
+sudo systemctl mask upower.servic
+seystemctl --user mask dbus-:1.4-org.kde.kwalletd.service
+systemctl --user mask dbus-:1.4-org.kde.kwalletd5.service
+journalctl -xe | grep Oct\ 17   
+
+systemd[1]: Started Authorization Manager.
+systemd-hostnamed.service:
+Oct 17 16:26:20 archlinux systemd[1]: Started Hostname Service.
+bluetooth muss weg
+
+========================================================================
+   BYTE UNIX Benchmarks (Version 5.1.3)
+
+   System: : GNU/Linux
+   OS: GNU/Linux -- 6.11.3-arch1-1 -- #1 SMP PREEMPT_DYNAMIC Thu, 10 Oct 2024 20:11:06 +0000
+   Machine: x86_64 (unknown)
+   Language: en_US.utf8 (charmap="UTF-8", collate="UTF-8")
+   CPU 0: AMD Ryzen 5 3600 6-Core Processor (7189.0 bogomips)
+          Hyper-Threading, x86-64, MMX, AMD MMX, Physical Address Ext, SYSENTER/SYSEXIT, AMD virtualization, SYSCALL/SYSRET
+   CPU 1: AMD Ryzen 5 3600 6-Core Processor (7189.0 bogomips)
+          Hyper-Threading, x86-64, MMX, AMD MMX, Physical Address Ext, SYSENTER/SYSEXIT, AMD virtualization, SYSCALL/SYSRET
+   CPU 2: AMD Ryzen 5 3600 6-Core Processor (7189.0 bogomips)
+          Hyper-Threading, x86-64, MMX, AMD MMX, Physical Address Ext, SYSENTER/SYSEXIT, AMD virtualization, SYSCALL/SYSRET
+   CPU 3: AMD Ryzen 5 3600 6-Core Processor (7189.0 bogomips)
+          Hyper-Threading, x86-64, MMX, AMD MMX, Physical Address Ext, SYSENTER/SYSEXIT, AMD virtualization, SYSCALL/SYSRET
+   CPU 4: AMD Ryzen 5 3600 6-Core Processor (7189.0 bogomips)
+          Hyper-Threading, x86-64, MMX, AMD MMX, Physical Address Ext, SYSENTER/SYSEXIT, AMD virtualization, SYSCALL/SYSRET
+   CPU 5: AMD Ryzen 5 3600 6-Core Processor (7189.0 bogomips)
+          Hyper-Threading, x86-64, MMX, AMD MMX, Physical Address Ext, SYSENTER/SYSEXIT, AMD virtualization, SYSCALL/SYSRET
+   CPU 6: AMD Ryzen 5 3600 6-Core Processor (7189.0 bogomips)
+          Hyper-Threading, x86-64, MMX, AMD MMX, Physical Address Ext, SYSENTER/SYSEXIT, AMD virtualization, SYSCALL/SYSRET
+   CPU 7: AMD Ryzen 5 3600 6-Core Processor (7189.0 bogomips)
+          Hyper-Threading, x86-64, MMX, AMD MMX, Physical Address Ext, SYSENTER/SYSEXIT, AMD virtualization, SYSCALL/SYSRET
+   CPU 8: AMD Ryzen 5 3600 6-Core Processor (7189.0 bogomips)
+          Hyper-Threading, x86-64, MMX, AMD MMX, Physical Address Ext, SYSENTER/SYSEXIT, AMD virtualization, SYSCALL/SYSRET
+   CPU 9: AMD Ryzen 5 3600 6-Core Processor (7189.0 bogomips)
+          Hyper-Threading, x86-64, MMX, AMD MMX, Physical Address Ext, SYSENTER/SYSEXIT, AMD virtualization, SYSCALL/SYSRET
+   CPU 10: AMD Ryzen 5 3600 6-Core Processor (7189.0 bogomips)
+          Hyper-Threading, x86-64, MMX, AMD MMX, Physical Address Ext, SYSENTER/SYSEXIT, AMD virtualization, SYSCALL/SYSRET
+   CPU 11: AMD Ryzen 5 3600 6-Core Processor (7189.0 bogomips)
+          Hyper-Threading, x86-64, MMX, AMD MMX, Physical Address Ext, SYSENTER/SYSEXIT, AMD virtualization, SYSCALL/SYSRET
+   17:09:16 up 16 min,  2 users,  load average: 1.00, 0.77, 0.66; runlevel 
+
+------------------------------------------------------------------------
+Benchmark Run: Tue Oct 15 2024 17:09:16 - 17:37:19
+12 CPUs in system; running 1 parallel copy of tests
+
+Dhrystone 2 using register variables       52417931.8 lps   (10.0 s, 7 samples)
+Double-Precision Whetstone                     9165.5 MWIPS (10.0 s, 7 samples)
+Execl Throughput                               3056.0 lps   (29.9 s, 2 samples)
+File Copy 1024 bufsize 2000 maxblocks        789886.8 KBps  (30.0 s, 2 samples)
+File Copy 256 bufsize 500 maxblocks          205944.4 KBps  (30.0 s, 2 samples)
+File Copy 4096 bufsize 8000 maxblocks       2457388.7 KBps  (30.0 s, 2 samples)
+Pipe Throughput                             1338203.5 lps   (10.0 s, 7 samples)
+Pipe-based Context Switching                 126682.1 lps   (10.0 s, 7 samples)
+Process Creation                               6515.2 lps   (30.0 s, 2 samples)
+Shell Scripts (1 concurrent)                   8983.9 lpm   (60.0 s, 2 samples)
+Shell Scripts (8 concurrent)                   5679.6 lpm   (60.0 s, 2 samples)
+System Call Overhead                        1332346.3 lps   (10.0 s, 7 samples)
+
+System Benchmarks Index Values               BASELINE       RESULT    INDEX
+Dhrystone 2 using register variables         116700.0   52417931.8   4491.7
+Double-Precision Whetstone                       55.0       9165.5   1666.5
+Execl Throughput                                 43.0       3056.0    710.7
+File Copy 1024 bufsize 2000 maxblocks          3960.0     789886.8   1994.7
+File Copy 256 bufsize 500 maxblocks            1655.0     205944.4   1244.4
+File Copy 4096 bufsize 8000 maxblocks          5800.0    2457388.7   4236.9
+Pipe Throughput                               12440.0    1338203.5   1075.7
+Pipe-based Context Switching                   4000.0     126682.1    316.7
+Process Creation                                126.0       6515.2    517.1
+Shell Scripts (1 concurrent)                     42.4       8983.9   2118.9
+Shell Scripts (8 concurrent)                      6.0       5679.6   9465.9
+System Call Overhead                          15000.0    1332346.3    888.2
+                                                                   ========
+System Benchmarks Index Score                                        1538.3
+
+------------------------------------------------------------------------
+Benchmark Run: Tue Oct 15 2024 17:37:19 - 18:05:40
+12 CPUs in system; running 12 parallel copies of tests
+
+Dhrystone 2 using register variables      427108197.6 lps   (10.0 s, 7 samples)
+Double-Precision Whetstone                    90852.0 MWIPS (10.0 s, 7 samples)
+Execl Throughput                              23263.3 lps   (30.0 s, 2 samples)
+File Copy 1024 bufsize 2000 maxblocks       7004226.6 KBps  (30.0 s, 2 samples)
+File Copy 256 bufsize 500 maxblocks         1873088.9 KBps  (30.0 s, 2 samples)
+File Copy 4096 bufsize 8000 maxblocks       8147295.1 KBps  (30.0 s, 2 samples)
+Pipe Throughput                            12224232.5 lps   (10.0 s, 7 samples)
+Pipe-based Context Switching                1150554.0 lps   (10.0 s, 7 samples)
+Process Creation                              46887.4 lps   (30.0 s, 2 samples)
+Shell Scripts (1 concurrent)                  52958.1 lpm   (60.0 s, 2 samples)
+Shell Scripts (8 concurrent)                   7189.6 lpm   (60.0 s, 2 samples)
+System Call Overhead                       12125310.9 lps   (10.0 s, 7 samples)
+
+System Benchmarks Index Values               BASELINE       RESULT    INDEX
+Dhrystone 2 using register variables         116700.0  427108197.6  36598.8
+Double-Precision Whetstone                       55.0      90852.0  16518.6
+Execl Throughput                                 43.0      23263.3   5410.1
+File Copy 1024 bufsize 2000 maxblocks          3960.0    7004226.6  17687.4
+File Copy 256 bufsize 500 maxblocks            1655.0    1873088.9  11317.8
+File Copy 4096 bufsize 8000 maxblocks          5800.0    8147295.1  14047.1
+Pipe Throughput                               12440.0   12224232.5   9826.6
+Pipe-based Context Switching                   4000.0    1150554.0   2876.4
+Process Creation                                126.0      46887.4   3721.2
+Shell Scripts (1 concurrent)                     42.4      52958.1  12490.1
+Shell Scripts (8 concurrent)                      6.0       7189.6  11982.6
+System Call Overhead                          15000.0   12125310.9   8083.5
+                                                                   ========
+System Benchmarks Index Score                                       10131.9

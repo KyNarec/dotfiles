@@ -1,0 +1,21 @@
+# Static information about the filesystems.
+# See fstab(5) for details.
+
+# <file system> <dir> <type> <options> <dump> <pass>
+# /dev/sda2
+UUID=3b47976e-6c5d-47a7-9496-3884fa3aceb2	/         	ext4      	rw,relatime,stripe=8191	0 1
+
+# /dev/sda1
+UUID=8826-2F55      	/boot     	vfat      	rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro	0 2
+
+# /dev/sda3
+UUID=5991c90a-d851-4f48-b80c-d395170c2ff0	/home     	ext4      	rw,relatime,stripe=8191	0 2
+
+# Windows
+UUID=3C1027D3102792C6 /run/media/simon/Windows ntfs rw,uid=1000,gid=1000 0 0
+
+# M.2
+UUID=3814CB0714CAC75A /run/media/simon/M.2_SSD ntfs-3g rw,uid=1000,gid=1000 0 0
+
+# steam fix
+#tmpfs /home/simon/.local/share/Steam/steamapps/common/SteamLinuxRuntime_soldier/var tmpfs defaults 0 0

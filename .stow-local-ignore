@@ -32,3 +32,5 @@ _darcs
 ^/sshd_config
 ^/makepkg.conf
 ^/pacman.conf
+^/fstab
+^/mtab
