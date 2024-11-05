@@ -6,10 +6,10 @@ local plugins = {
     "nvim-neotest/nvim-nio",
   },
 
-    --- JAVA
+  --- JAVA
   {
     "nvim-java/nvim-java",
-    config = false,
+    config = true,
     dependencies = {
       'nvim-java/lua-async-await',
       'nvim-java/nvim-java-core',
@@ -20,22 +20,28 @@ local plugins = {
       'mfussenegger/nvim-dap',
       "jay-babu/mason-nvim-dap.nvim",
       opts = {
-          servers = {
-            jdtls = {
+        servers = {
+          jdtls = {
           },
           setup = {
-            jdtls = function ()
+            jdtls = function()
               require("java").setup({
-                java_home = "/usr/lib64/jvm/java-22-openjdk/bin/java",
+                -- java_home = "/usr/lib64/jvm/java-22-openjdk/bin/java",
+                jdk = {
+                  auto_install = true,
+                },
                 java_test = {
-                enable = true,
+                  enable = true,
                 },
                 java_debug_adapter = {
-                enable = true,
+                  enable = true,
                 },
                 spring_boot_tools = {
-                enable = true,
+                  enable = true,
                 },
+                notifications = {
+                  dap = true,
+                }
               })
             end,
           },
@@ -87,7 +93,7 @@ local plugins = {
 
   {
     "nvimtools/none-ls.nvim",
-    ft = {"python"},
+    ft = { "python" },
     opts = function()
       return require "custom.configs.null-ls"
     end,
@@ -98,7 +104,7 @@ local plugins = {
   {
     "rust-lang/rust.vim",
     ft = "rust",
-    init = function ()
+    init = function()
       vim.g.rustfmt_autosave = 1
     end
   },
@@ -113,12 +119,12 @@ local plugins = {
   },
   {
     'saecki/crates.nvim',
-    ft = {"toml"},
+    ft = { "toml" },
     config = function(_, opts)
-      local crates  = require('crates')
+      local crates = require('crates')
       crates.setup(opts)
       require('cmp').setup.buffer({
-        sources = { { name = "crates" }}
+        sources = { { name = "crates" } }
       })
       crates.show()
       require("core.utils").load_mappings("crates")
@@ -127,7 +133,7 @@ local plugins = {
   {
     "rust-lang/rust.vim",
     ft = "rust",
-    init = function ()
+    init = function()
       vim.g.rustfmt_autosave = 1
     end
   },
@@ -147,7 +153,7 @@ local plugins = {
         behavior = cmp.ConfirmBehavior.Insert,
         select = false,
       }
-      table.insert(M.sources, {name = "crates"})
+      table.insert(M.sources, { name = "crates" })
       return M
     end
   },
@@ -194,8 +200,8 @@ local plugins = {
   },
 
   {
-		"nvim-treesitter/nvim-treesitter",
-		opts = {
+    "nvim-treesitter/nvim-treesitter",
+    opts = {
       ensure_installed = {
         "python",
         "c",
@@ -205,6 +211,6 @@ local plugins = {
         "java",
       },
     },
-	},
+  },
 }
 return plugins
