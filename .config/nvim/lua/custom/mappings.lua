@@ -15,7 +15,7 @@ M.dap = {
   }
 }
 
-M.dap_java = {
+M.lspconfig = {
   plugin = true,
   n = {
     ["<leader>jr"] = {

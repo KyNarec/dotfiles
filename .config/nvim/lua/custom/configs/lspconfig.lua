@@ -22,7 +22,7 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
-lspconfig.jdtls.setup({})
+-- lspconfig.jdtls.setup({})
 
 lspconfig.clangd.setup {
   on_attach = function(client, bufnr)

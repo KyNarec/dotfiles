@@ -7,47 +7,77 @@ local plugins = {
   },
 
   --- JAVA
-  {
+  -- {
+  --   "nvim-java/nvim-java",
+  --   config = true,
+  --   dependencies = {
+  --     'nvim-java/lua-async-await',
+  --     'nvim-java/nvim-java-core',
+  --     'nvim-java/nvim-java-test',
+  --     'nvim-java/nvim-java-dap',
+  --     'MunifTanjim/nui.nvim',
+  --     'neovim/nvim-lspconfig',
+  --     'mfussenegger/nvim-dap',
+  --     "jay-babu/mason-nvim-dap.nvim",
+  --     opts = {
+  --       servers = {
+  --         jdtls = {
+  --         },
+  --         setup = {
+  --           jdtls = function()
+  --             require("java").setup({
+  --               -- java_home = "/usr/lib64/jvm/java-22-openjdk/bin/java",
+  --               jdk = {
+  --                 auto_install = true,
+  --               },
+  --               java_test = {
+  --                 enable = true,
+  --               },
+  --               java_debug_adapter = {
+  --                 enable = true,
+  --               },
+  --               spring_boot_tools = {
+  --                 enable = true,
+  --               },
+  --               notifications = {
+  --                 dap = true,
+  --               }
+  --             })
+  --           end,
+  --         },
+  --       },
+  --     },
+  --   },
+  -- },
+{
     "nvim-java/nvim-java",
-    config = true,
+    lazy = false,
     dependencies = {
-      'nvim-java/lua-async-await',
-      'nvim-java/nvim-java-core',
-      'nvim-java/nvim-java-test',
-      'nvim-java/nvim-java-dap',
-      'MunifTanjim/nui.nvim',
-      'neovim/nvim-lspconfig',
-      'mfussenegger/nvim-dap',
-      "jay-babu/mason-nvim-dap.nvim",
-      opts = {
-        servers = {
-          jdtls = {
-          },
-          setup = {
-            jdtls = function()
-              require("java").setup({
-                -- java_home = "/usr/lib64/jvm/java-22-openjdk/bin/java",
-                jdk = {
-                  auto_install = true,
-                },
-                java_test = {
-                  enable = true,
-                },
-                java_debug_adapter = {
-                  enable = true,
-                },
-                spring_boot_tools = {
-                  enable = true,
-                },
-                notifications = {
-                  dap = true,
-                }
-              })
-            end,
+      "nvim-java/lua-async-await",
+      "nvim-java/nvim-java-core",
+      "nvim-java/nvim-java-test",
+      "nvim-java/nvim-java-dap",
+      "MunifTanjim/nui.nvim",
+      "neovim/nvim-lspconfig",
+      "mfussenegger/nvim-dap",
+      {
+        "williamboman/mason.nvim",
+        opts = {
+          registries = {
+            "github:nvim-java/mason-registry",
+            "github:mason-org/mason-registry",
           },
         },
       },
     },
+    config = function()
+      require("java").setup {}
+      require("lspconfig").jdtls.setup {
+        on_attach = require("plugins.configs.lspconfig").on_attach,
+        capabilities = require("plugins.configs.lspconfig").capabilities,
+        filetypes = { "java" },
+      }
+    end,
   },
 
   {
@@ -196,7 +226,7 @@ local plugins = {
       require "plugins.configs.lspconfig"
       require "custom.configs.lspconfig"
     end,
-    require('lspconfig').jdtls.setup({})
+    -- require('lspconfig').jdtls.setup({})
   },
 
   {
@@ -209,6 +239,7 @@ local plugins = {
         "lua",
         "rust",
         "java",
+        "kotlin",
       },
     },
   },
