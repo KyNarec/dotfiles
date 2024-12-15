@@ -6,50 +6,7 @@ local plugins = {
     "nvim-neotest/nvim-nio",
   },
 
-  --- JAVA
-  -- {
-  --   "nvim-java/nvim-java",
-  --   config = true,
-  --   dependencies = {
-  --     'nvim-java/lua-async-await',
-  --     'nvim-java/nvim-java-core',
-  --     'nvim-java/nvim-java-test',
-  --     'nvim-java/nvim-java-dap',
-  --     'MunifTanjim/nui.nvim',
-  --     'neovim/nvim-lspconfig',
-  --     'mfussenegger/nvim-dap',
-  --     "jay-babu/mason-nvim-dap.nvim",
-  --     opts = {
-  --       servers = {
-  --         jdtls = {
-  --         },
-  --         setup = {
-  --           jdtls = function()
-  --             require("java").setup({
-  --               -- java_home = "/usr/lib64/jvm/java-22-openjdk/bin/java",
-  --               jdk = {
-  --                 auto_install = true,
-  --               },
-  --               java_test = {
-  --                 enable = true,
-  --               },
-  --               java_debug_adapter = {
-  --                 enable = true,
-  --               },
-  --               spring_boot_tools = {
-  --                 enable = true,
-  --               },
-  --               notifications = {
-  --                 dap = true,
-  --               }
-  --             })
-  --           end,
-  --         },
-  --       },
-  --     },
-  --   },
-  -- },
-{
+  {
     "nvim-java/nvim-java",
     lazy = false,
     dependencies = {
@@ -76,6 +33,18 @@ local plugins = {
         on_attach = require("plugins.configs.lspconfig").on_attach,
         capabilities = require("plugins.configs.lspconfig").capabilities,
         filetypes = { "java" },
+        settings = {
+          java = {
+            project = {
+              referencedLibraries = {
+                "libs/flatlaf-3.5.1.jar",
+                "libs/Engine.Alpha.jar",
+                "libs/jl1.0.1.jar",
+                "libs/Liste.jar"
+              }
+            }
+          }
+        }
       }
     end,
   },
@@ -240,6 +209,13 @@ local plugins = {
         "rust",
         "java",
         "kotlin",
+        "bash",
+        "csv",
+        "json",
+        "hyprlang",
+        "markdown",
+        "xml",
+        "yaml",
       },
     },
   },

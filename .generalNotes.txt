@@ -44,31 +44,13 @@ CSGO-hVS26-Ejwaj-zQMWr-r2dTG-octOH # Aqua dot
 CSGO-sUpFm-EFCnF-daCCK-Bas7z-CBAMK # Black small cross
 CSGO-sPbxV-9qXma-5TxGJ-UMJfo-CPVGQ # Aqua cross
 
-### Trying to solve slow startup times
+### Android auto development
 
-[2024-07-07T20:24:43+0200] [ALPM] upgraded python-validate-pyproject (0.16-1 -> 0.18-1)
-[2024-08-31T16:55:15+0200] [ALPM] upgraded python-validate-pyproject (0.18-1 -> 0.19-1)
-[2024-10-08T16:34:23+0200] [ALPM] upgraded python-validate-pyproject (0.19-1 -> 0.20.2-1)
-[2024-10-09T15:53:55+0200] [ALPM] upgraded python-pyproject-hooks (1.1.0-1 -> 1.2.0-1)
-Oct 17 15:49:55 archlinux systemd[868]: Starting Virtual filesystem service...
-Oct 17 15:50:02 archlinux systemd[868]: Started Virtual filesystem service.
+adb -s emulator-5554 forward tcp:5277 tcp:5277
 
-Oct 17 15:50:09 archlinux systemd[868]: Started dbus-:1.4-org.kde.kwalletd5@0.service.
-Oct 17 15:50:16 archlinux systemd[868]: Started dbus-:1.4-org.kde.kwalletd5@1.service.
+start head unit server in android auto app (three dots)
 
-Oct 17 15:50:19 archlinux systemd[1]: Starting Daemon for power management...
-Oct 17 15:50:22 archlinux systemd[1]: Started Daemon for power management.
-
-sudo systemctl disable upower.service
-sudo systemctl mask upower.servic
-seystemctl --user mask dbus-:1.4-org.kde.kwalletd.service
-systemctl --user mask dbus-:1.4-org.kde.kwalletd5.service
-journalctl -xe | grep Oct\ 17   
-
-systemd[1]: Started Authorization Manager.
-systemd-hostnamed.service:
-Oct 17 16:26:20 archlinux systemd[1]: Started Hostname Service.
-bluetooth muss weg
+~/Android/Sdk/extras/google/auto/desktop-head-unit  
 
 ========================================================================
    BYTE UNIX Benchmarks (Version 5.1.3)
