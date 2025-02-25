@@ -11,7 +11,12 @@ M.dap = {
         sidebar.open();
       end,
       "Open debugging sidebar"
-    }
+    },
+
+    ["<leader>cc"] = {":VimtexCompile <CR>"},
+    ["<leader>cv"] = {":VimtexView<CR>"},
+    ["<leader>cq"] = {":VimtexStop<CR>"},
+    ["<leader>cd"] = {':lua vim.diagnostic.open_float(0, {scope="line"})<CR>'}
   }
 }
 

@@ -9,7 +9,7 @@ local util = require "lspconfig/util"
 
 local servers = {
   "pyright",
-  "ruff_lsp",
+  "ruff",
 }
 
 vim.api.nvim_create_autocmd('FileType', {
@@ -22,6 +22,7 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
+lspconfig.texlab.setup {}
 -- lspconfig.jdtls.setup({})
 
 lspconfig.clangd.setup {

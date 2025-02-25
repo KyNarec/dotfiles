@@ -11,6 +11,9 @@ ffmpeg
 zip
 unzip
 tmux
+textlive
+zathura
+zathura-pdf-mupdf
 )
 
 install_yay=(
