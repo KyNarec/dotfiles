@@ -11,7 +11,7 @@ ffmpeg
 zip
 unzip
 tmux
-textlive
+texlive
 zathura
 zathura-pdf-mupdf
 )
