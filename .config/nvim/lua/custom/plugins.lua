@@ -41,7 +41,8 @@ local plugins = {
                 "libs/Engine.Alpha.jar",
                 "libs/jl1.0.1.jar",
                 "libs/Liste.jar",
-                "+libs/binbaum_ohne.jar"
+                "+libs/binbaum_ohne.jar",
+                "libs/flatlaf-3.5.1.jar",
               }
             }
           }
