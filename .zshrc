@@ -37,6 +37,8 @@ fastfetch
 # Created by `pipx` on 2024-08-06 21:30:28
 export PATH="$PATH:/home/simon/.local/bin"
 
+export PATH="$HOME/.cargo/bin:$PATH"
+
 alias ff="fastfetch"
 alias ls="eza -a --color=always --icons=always"
 alias vim=nvim

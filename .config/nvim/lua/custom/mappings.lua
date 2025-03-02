@@ -16,7 +16,8 @@ M.dap = {
     ["<leader>cc"] = {":VimtexCompile <CR>"},
     ["<leader>cv"] = {":VimtexView<CR>"},
     ["<leader>cq"] = {":VimtexStop<CR>"},
-    ["<leader>cd"] = {':lua vim.diagnostic.open_float(0, {scope="line"})<CR>'}
+    ["<leader>cd"] = {':lua vim.diagnostic.open_float(0, {scope="line"})<CR>'},
+    ["<leader>rr"] = {':RustRun<CR>'},
   }
 }
 

@@ -8,6 +8,7 @@ local plugins = {
 
   {
     "nvim-java/nvim-java",
+    ft = "java",
     lazy = false,
     dependencies = {
       "nvim-java/lua-async-await",
@@ -102,19 +103,17 @@ local plugins = {
   --- RUST
 
   {
+    'mrcjkb/rustaceanvim',
+    version = '^5',  -- Recommended
+    lazy = false,
+    ft = { 'rust' }, -- Load only for Rust files
+  },
+  {
     "rust-lang/rust.vim",
+    lazy = false,
     ft = "rust",
     init = function()
       vim.g.rustfmt_autosave = 1
-    end
-  },
-  {
-    "mrcjkb/rustaceanvim",
-    version = "^4",
-    ft = { "rust" },
-    dependencies = "neovim/nvim-lspconfig",
-    config = function()
-      require "custom.configs.rustaceanvim"
     end
   },
   {
@@ -130,13 +129,7 @@ local plugins = {
       require("core.utils").load_mappings("crates")
     end,
   },
-  {
-    "rust-lang/rust.vim",
-    ft = "rust",
-    init = function()
-      vim.g.rustfmt_autosave = 1
-    end
-  },
+
   {
     "theHamsta/nvim-dap-virtual-text",
     lazy = false,
@@ -236,15 +229,54 @@ local plugins = {
     end,
   },
 
+  -- {
+  --   'maan2003/lsp_lines.nvim',
+  --   url = "git@github.com:maan2003/lsp_lines.nvim.git",
+  --   lazy = false,
+  --   config = function()
+  --     require("lsp_lines").setup()
+  --     vim.diagnostic.config({
+  --       virtual_text = false,
+  --     })
+  --     vim.lsp.handlers['textDocument/publishDiagnostics'] = function(...)
+  --       local args = vim.F.pack_len(...)
+  --       local diagnostics = args.diagnostics
+  --       if diagnostics then
+  --         for _, d in ipairs(diagnostics) do
+  --           if d.range.start.line >= vim.api.nvim_buf_line_count(0) then
+  --             return
+  --           end
+  --         end
+  --       end
+  --       return vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+  --         virtual_text = false
+  --       })(...)
+  --     end
+  --   end,
+  -- },
   {
-    'maan2003/lsp_lines.nvim',
-    url = "git@github.com:maan2003/lsp_lines.nvim.git",
-    lazy = false,
+    'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
     config = function()
+      local ok, _ = pcall(require, "lsp_lines")
+      if not ok then return end
       require("lsp_lines").setup()
-      vim.diagnostic.config({
-        virtual_text = false,
-      })
+      vim.diagnostic.config({ virtual_text = false })
+
+      vim.lsp.handlers['textDocument/publishDiagnostics'] = function(...)
+        local args = vim.lsp.util.make_handler_params(...)
+        local bufnr = args.bufnr
+        local line_count = vim.api.nvim_buf_line_count(bufnr)
+
+        -- Filter diagnostics with invalid line numbers
+        args.diagnostics = vim.tbl_filter(function(d)
+          local start_line = d.range.start.line
+          local end_line = d.range["end"].line
+          return start_line < line_count and end_line < line_count
+        end, args.diagnostics)
+
+        -- Pass filtered diagnostics to default handler
+        return vim.lsp.diagnostic.on_publish_diagnostics(...)(...)
+      end
     end,
   },
 }
