@@ -221,65 +221,25 @@ local plugins = {
     "lervag/vimtex",
     lazy = false,
     init = function()
-      -- vim.g.tex_flavor = "latex"
-      -- vim.g.vimtex_quickfix_mode = 0
-      -- vim.g.vimtex_mappings_enabled = 0
-      -- vim.g.vimtex_indent_enabled = 0
-
-      vim.g.vimtex_view_method = "zathura"
-      -- vim.g.vimtex_context_pdf_viewer = "zathura"
+      vim.g.vimtex_view_method = "general"
     end,
   },
 
-  -- {
-  --   'maan2003/lsp_lines.nvim',
-  --   url = "git@github.com:maan2003/lsp_lines.nvim.git",
-  --   lazy = false,
-  --   config = function()
-  --     require("lsp_lines").setup()
-  --     vim.diagnostic.config({
-  --       virtual_text = false,
-  --     })
-  --     vim.lsp.handlers['textDocument/publishDiagnostics'] = function(...)
-  --       local args = vim.F.pack_len(...)
-  --       local diagnostics = args.diagnostics
-  --       if diagnostics then
-  --         for _, d in ipairs(diagnostics) do
-  --           if d.range.start.line >= vim.api.nvim_buf_line_count(0) then
-  --             return
-  --           end
-  --         end
-  --       end
-  --       return vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-  --         virtual_text = false
-  --       })(...)
-  --     end
-  --   end,
-  -- },
   {
     'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
+    lazy = false,
+    dependencies = { 'neovim/nvim-lspconfig' },
     config = function()
-      local ok, _ = pcall(require, "lsp_lines")
+      -- Safely require the plugin
+      local ok, lsp_lines = pcall(require, "lsp_lines")
       if not ok then return end
-      require("lsp_lines").setup()
-      vim.diagnostic.config({ virtual_text = false })
 
-      vim.lsp.handlers['textDocument/publishDiagnostics'] = function(...)
-        local args = vim.lsp.util.make_handler_params(...)
-        local bufnr = args.bufnr
-        local line_count = vim.api.nvim_buf_line_count(bufnr)
-
-        -- Filter diagnostics with invalid line numbers
-        args.diagnostics = vim.tbl_filter(function(d)
-          local start_line = d.range.start.line
-          local end_line = d.range["end"].line
-          return start_line < line_count and end_line < line_count
-        end, args.diagnostics)
-
-        -- Pass filtered diagnostics to default handler
-        return vim.lsp.diagnostic.on_publish_diagnostics(...)(...)
-      end
+      -- Initialize lsp_lines
+      vim.diagnostic.config({ virtual_text = false }) -- Optional cleaner format
+      lsp_lines.setup()
     end,
+
   },
+
 }
 return plugins

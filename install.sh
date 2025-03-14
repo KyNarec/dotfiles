@@ -14,6 +14,9 @@ tmux
 texlive
 zathura
 zathura-pdf-mupdf
+texlive-langgerman
+texlive-langeuropean
+biber
 )
 
 install_yay=(
