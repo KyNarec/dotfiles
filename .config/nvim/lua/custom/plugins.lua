@@ -42,9 +42,11 @@ local plugins = {
                 "libs/Engine.Alpha.jar",
                 "libs/jl1.0.1.jar",
                 "libs/Liste.jar",
-                "+libs/binbaum_ohne.jar",
-                "+libs/binbaum_mit.jar",
-                "+libs/flatlaf-3.5.1.jar",
+                "libs/*",
+                -- "+libs/binbaum_ohne.jar",
+                -- "+libs/binbaum_mit.jar",
+                -- "+libs/flatlaf-3.5.1.jar",
+                "+libs/*"
               }
             }
           }
@@ -235,7 +237,7 @@ local plugins = {
       if not ok then return end
 
       -- Initialize lsp_lines
-      vim.diagnostic.config({ virtual_text = false }) -- Optional cleaner format
+      vim.diagnostic.config({ virtual_text = false })   -- Optional cleaner format
       lsp_lines.setup()
     end,
 
