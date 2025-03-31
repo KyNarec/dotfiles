@@ -22,7 +22,17 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
-lspconfig.texlab.setup {}
+lspconfig.texlab.setup {
+  settings = {
+    texlab = {
+      diagnostics = {
+        ignoredPatterns = {
+          "(badness 10000)",
+        }
+      },
+    },
+  },
+}
 -- lspconfig.jdtls.setup({})
 
 lspconfig.clangd.setup {
@@ -37,6 +47,6 @@ for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup({
     on_attach = on_attach,
     capabilities = capabilities,
-    filetypes = {"python"},
+    filetypes = { "python" },
   })
 end

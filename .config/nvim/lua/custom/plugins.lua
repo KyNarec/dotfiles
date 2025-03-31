@@ -38,10 +38,6 @@ local plugins = {
           java = {
             project = {
               referencedLibraries = {
-                "libs/flatlaf-3.5.1.jar",
-                "libs/Engine.Alpha.jar",
-                "libs/jl1.0.1.jar",
-                "libs/Liste.jar",
                 "libs/*",
                 -- "+libs/binbaum_ohne.jar",
                 -- "+libs/binbaum_mit.jar",
@@ -224,6 +220,8 @@ local plugins = {
     lazy = false,
     init = function()
       vim.g.vimtex_view_method = "general"
+      vim.g.vimtex_quickfix_ignore_filters = 'Underfull \\hbox'
+      vim.g.vimtex_quickfix_mode = 1
     end,
   },
 
@@ -237,7 +235,7 @@ local plugins = {
       if not ok then return end
 
       -- Initialize lsp_lines
-      vim.diagnostic.config({ virtual_text = false })   -- Optional cleaner format
+      vim.diagnostic.config({ virtual_text = false }) -- Optional cleaner format
       lsp_lines.setup()
     end,
 

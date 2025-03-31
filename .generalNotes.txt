@@ -31,6 +31,10 @@ in language press SHIFT+F10
 "OOBE\BYPASSNRO"
 should restart after
 
+!!!! After 25H2 !!!!
+SHIFT+F10
+  start ms-cxh:localonly
+
 # convert .ova to qcow2
 tar -xvf <ova_file>.ova
 qemu-img convert -f vmdk -O qcow2 disk001.vmdk output.qcow2

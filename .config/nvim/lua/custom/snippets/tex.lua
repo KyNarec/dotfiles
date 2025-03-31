@@ -18,7 +18,8 @@ ls.add_snippets("tex", {
   s("start", fmt(
     [[
     %%%%%%% Basic Document Stuff %%%%%%%
-    \documentclass[16pt]{{article}}
+    \documentclass{{article}}
+    \usepackage[margin=25mm]{{geometry}}
     \usepackage[utf8]{{inputenc}}
     \usepackage[T1]{{fontenc}}
     %%%%%%% Lorem ipsum %%%%%%%
