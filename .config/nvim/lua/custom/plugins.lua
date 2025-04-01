@@ -179,6 +179,9 @@ local plugins = {
 
         --- rust
         "rust-analyzer",
+
+        --- LaTex
+        "texlab",
       },
     },
   },
