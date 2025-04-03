@@ -31,6 +31,8 @@ ls.add_snippets("tex", {
     %%%%%%% Arial Font %%%%%%%
     \usepackage{{helvet}}
     \renewcommand{{\familydefault}}{{\sfdefault}}
+    %%%%%%% Import Pdf's %%%%%%%
+    \usepackage{{pdfpages}}
 
 
     \begin {{{}}}
