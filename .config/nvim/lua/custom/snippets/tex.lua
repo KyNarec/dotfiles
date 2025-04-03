@@ -75,3 +75,12 @@ ls.add_snippets("tex", {
       i(1, "package")
     }))
 })
+
+ls.add_snippets("tex", {
+  s("pdf", fmt(
+    [[
+      \includepdf[pages=-]{{{}}} 
+    ]], {
+    i(1, "filename")
+  }))
+})
