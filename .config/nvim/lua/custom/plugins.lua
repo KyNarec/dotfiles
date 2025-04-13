@@ -227,7 +227,7 @@ local plugins = {
       vim.g.vimtex_quickfix_mode = 1
     end,
   },
-
+  -- Useless rn
   {
     'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
     lazy = false,
@@ -238,7 +238,8 @@ local plugins = {
       if not ok then return end
 
       -- Initialize lsp_lines
-      vim.diagnostic.config({ virtual_text = false }) -- Optional cleaner format
+      -- vim.diagnostic.config({ virtual_text = false }) -- commented out, because it brakes the plugin
+
       lsp_lines.setup()
     end,
 
