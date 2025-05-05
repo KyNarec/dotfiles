@@ -23,6 +23,10 @@ install_yay=(
 #qwinff
 vesktop
 brave-bin
+gearlever
+localsend
+visual-studio-code-bin
+p7zip-gui
 )
 
 read -p "$(tput setaf 6)Do you want to configure Wifi?(y/n)$(tput sgr0)" wifi
