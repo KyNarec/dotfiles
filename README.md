@@ -22,7 +22,7 @@ Clone this repository and execute the installation script
 
 ```
 git clone --depth=1 https://github.com/KyNarec/dotfiles.git ~/dotfiles
-cd dotfiles
+cd ~/dotfiles
 chmod +x install.sh 
 ./install.sh
 ```

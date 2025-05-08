@@ -56,3 +56,8 @@ start head unit server in android auto app (three dots)
 
 ~/Android/Sdk/extras/google/auto/desktop-head-unit  
 
+### Crack password protected zipfile with John
+
+sudo zip2john $zipfile>$name.hash
+john $name.hash -w="/usr/share/john/password.lst"
+

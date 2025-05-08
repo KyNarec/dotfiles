@@ -182,6 +182,7 @@ local plugins = {
 
         --- LaTex
         "texlab",
+        "latexindent",
 
         -- Hyprland
         "hyprls"
