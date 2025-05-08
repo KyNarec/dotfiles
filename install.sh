@@ -11,12 +11,8 @@ ffmpeg
 zip
 unzip
 tmux
-texlive
 zathura
 zathura-pdf-mupdf
-texlive-langgerman
-texlive-langeuropean
-biber
 )
 
 install_yay=(
@@ -29,8 +25,17 @@ visual-studio-code-bin
 p7zip-gui
 )
 
+install_latex=(
+texlive
+texlive-langgerman
+texlive-langeuropean
+biber
+)
+
 read -p "$(tput setaf 6)Do you want to configure Wifi?(y/n)$(tput sgr0)" wifi
 read -p "$(tput setaf 6)Do you want to install fstab file?(y/n)$(tput sgr0)" f 
+read -p "$(tput setaf 6)Do you want to configure SSH?(y/n)$(tput sgr0)" ssh
+read -p "$(tput setaf 6)Do you want to install texlive (Latex)?(y/n(recomended))$(tput sgr0)" latex 
 
 # Pacman candy etc.
 sudo cp -f ~/dotfiles/pacman.conf /etc/
@@ -47,6 +52,11 @@ for PKG1 in "${install_yay[@]}"; do
   yay -S --noconfirm "$PKG1"
 done
 
+if [ "$latex" != "y" ]; then
+  for PKG1 in "${install_latex[@]}"; do
+    sudo pacman -S --noconfirm "$PKG1"
+  done
+fi
 # removing some general configs
 rm ~/.config/btop/btop.conf
 rm ~/.config/hypr/configs/Keybinds.conf
@@ -57,6 +67,8 @@ rm ~/.config/hypr/UserConfigs/WindowRules.conf
 rm ~/.zshrc
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+cp ~/dotfiles/refined.zsh-theme ~/.oh-my-zsh/themes/
+
 rm ~/.config/hypr/UserScripts/QuickEdit.sh
 
 # preparing nvim
@@ -99,9 +111,12 @@ if [ "$f" != "y"]; then
 fi
 
 # SSH
+
+if [ "$ssh" != "y" ]; then
 echo -e "$(tput setaf 2)Configuring ssh to listen on port 123\n$(tput sgr0)"
 sudo systemctl start sshd.service
 sudo rm /etc/ssh/sshd_config
 sudo cp ~/dotfiles/sshd_config /etc/ssh/
 sudo systemctl restart sshd.service
 echo -e "$(tput setaf 2)Configured ssh\n$(tput sgr0)"
+fi

@@ -34,3 +34,4 @@ _darcs
 ^/pacman.conf
 ^/fstab
 ^/mtab
+^/refined.zsh-theme
