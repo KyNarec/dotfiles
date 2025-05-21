@@ -84,3 +84,21 @@ ls.add_snippets("tex", {
     i(1, "filename")
   }))
 })
+
+ls.add_snippets("tex", {
+  s("quote", fmt(
+    [[
+      \enquote{{{}}} 
+    ]], {
+    i(1, "quote")
+  }))
+})
+
+ls.add_snippets("tex", {
+  s("cite", fmt(
+    [[
+      \cite[vgl. {}][S. {}]{{{}}}
+    ]], {
+    i(1, ""), i(2, ""), i(3, "citation")
+  }))
+})

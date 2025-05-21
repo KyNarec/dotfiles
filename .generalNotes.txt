@@ -61,3 +61,5 @@ start head unit server in android auto app (three dots)
 sudo zip2john $zipfile>$name.hash
 john $name.hash -w="/usr/share/john/password.lst"
 
+### For Keychron K3 V2 Bluetooth
+https://forum.manjaro.org/t/bluetooth-keyboard-keeps-connecting-and-disconnecting-after-rebooting/107772/5
