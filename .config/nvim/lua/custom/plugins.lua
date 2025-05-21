@@ -8,7 +8,7 @@ local plugins = {
 
   {
     "nvim-java/nvim-java",
-    ft = "java",
+    ft = {"java"},
     lazy = false,
     dependencies = {
       "nvim-java/lua-async-await",
@@ -185,7 +185,10 @@ local plugins = {
         "latexindent",
 
         -- Hyprland
-        "hyprls"
+        "hyprls",
+
+        -- Kotlin
+        "kotlin-language-server"
       },
     },
   },

@@ -63,3 +63,7 @@ vim.api.nvim_create_autocmd({'BufEnter', 'BufWinEnter'}, {
 				}
 		end
 })
+
+lspconfig.kotlin_language_server.setup{
+  ft = { "kotlin "}
+}
