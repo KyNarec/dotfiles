@@ -64,4 +64,4 @@ export NVM_DIR="$HOME/.nvm"
 ## [/Completion]
 
 # zoxide
-eval "$(zoxide init zsh)"
+eval "$(zoxide init --cmd cd zsh)"
