@@ -63,3 +63,5 @@ export NVM_DIR="$HOME/.nvm"
 [[ -f /home/simon/.dart-cli-completion/zsh-config.zsh ]] && . /home/simon/.dart-cli-completion/zsh-config.zsh || true
 ## [/Completion]
 
+# zoxide
+eval "$(zoxide init zsh)"

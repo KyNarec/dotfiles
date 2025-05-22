@@ -13,6 +13,7 @@ unzip
 tmux
 zathura
 zathura-pdf-mupdf
+zoxide
 )
 
 install_yay=(
