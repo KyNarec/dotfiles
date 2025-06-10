@@ -8,7 +8,7 @@ local plugins = {
 
   {
     "nvim-java/nvim-java",
-    ft = {"java"},
+    ft = { "java" },
     lazy = false,
     dependencies = {
       "nvim-java/lua-async-await",
@@ -191,7 +191,10 @@ local plugins = {
         "kotlin-language-server"
       },
     },
+    version = "1.9.0",
   },
+
+  { "mason-org/mason-lspconfig.nvim", version = "1.9.0" },
 
   {
     "neovim/nvim-lspconfig",
@@ -251,6 +254,14 @@ local plugins = {
     end,
 
   },
+
+  -- to fully build this plugin, go into any markdown file and do: :call mkdp#util#install()
+  {
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    ft = { "markdown" },
+    build = function() vim.fn["mkdp#util#install"]() end,
+  }
 
 }
 return plugins
