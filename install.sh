@@ -14,16 +14,19 @@ tmux
 zathura
 zathura-pdf-mupdf
 zoxide
+# for qml lsp
+qt6-declarative
 )
 
 install_yay=(
-#qwinff
+qwinff
 vesktop
 brave-bin
 gearlever
 localsend
 visual-studio-code-bin
 p7zip-gui
+tela-circle-icon-theme-all
 )
 
 install_latex=(
