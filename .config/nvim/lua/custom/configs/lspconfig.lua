@@ -82,3 +82,7 @@ vim.api.nvim_create_autocmd({'BufEnter', 'BufWinEnter'}, {
 lspconfig.kotlin_language_server.setup{
   ft = { "kotlin "}
 }
+
+lspconfig.qmlls.setup {
+  cmd = {"qmlls6", "-E"}
+}

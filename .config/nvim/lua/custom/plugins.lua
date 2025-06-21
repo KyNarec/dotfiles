@@ -223,6 +223,7 @@ local plugins = {
         "markdown",
         "xml",
         "yaml",
+        "qmljs",
       },
     },
   },

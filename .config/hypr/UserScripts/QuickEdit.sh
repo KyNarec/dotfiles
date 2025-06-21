@@ -60,7 +60,7 @@ main() {
             $tty $editor "$configs/Keybinds.conf"
             ;;
 	      12)
-	          $tty $editor "$HOME/.generalNotes.txt"
+	          $tty $editor "$HOME/.generalNotes.md"
 	          ;;  
         *)
             ;;
