@@ -26,7 +26,7 @@ gearlever
 localsend
 visual-studio-code-bin
 p7zip-gui
-tela-circle-icon-theme-all
+# tela-circle-icon-theme-all
 )
 
 install_latex=(
@@ -36,10 +36,11 @@ texlive-langeuropean
 biber
 )
 
+read -p "$(tput setaf 6)Do you want to install advanced hyprland configs? May break your Hyprland config... (y/n(recomended))$(tput sgr0)" hypr 
 read -p "$(tput setaf 6)Do you want to configure Wifi?(y/n)$(tput sgr0)" wifi
 read -p "$(tput setaf 6)Do you want to install fstab file?(y/n)$(tput sgr0)" f 
 read -p "$(tput setaf 6)Do you want to configure SSH?(y/n)$(tput sgr0)" ssh
-read -p "$(tput setaf 6)Do you want to install texlive (Latex)?(y/n(recomended))$(tput sgr0)" latex 
+read -p "$(tput setaf 6)Do you want to install texlive (LaTeX)?(y/n(recomended))$(tput sgr0)" latex 
 
 # Pacman candy etc.
 sudo cp -f ~/dotfiles/pacman.conf /etc/
@@ -63,9 +64,6 @@ if [ "$latex" != "y" ]; then
 fi
 # removing some general configs
 rm ~/.config/btop/btop.conf
-rm ~/.config/hypr/configs/Keybinds.conf
-rm ~/.config/hypr/UserConfigs/UserSettings.conf
-rm ~/.config/hypr/UserConfigs/WindowRules.conf
 
 # ZSH and oh-my-zsh
 rm ~/.zshrc
@@ -73,12 +71,13 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 cp ~/dotfiles/refined.zsh-theme ~/.oh-my-zsh/themes/
 
+if $hypr; then
+# hyprland configs 
 rm ~/.config/hypr/UserScripts/QuickEdit.sh
 
-# preparing nvim
-mkdir ~/.config/nvim/
-rm -r -f ~/.config/nvim/
-cd $HOME
+rm ~/.config/hypr/configs/Keybinds.conf
+rm ~/.config/hypr/UserConfigs/UserSettings.conf
+rm ~/.config/hypr/UserConfigs/WindowRules.conf
 
 # rofi
 rm ~/.config/rofi/config-compact.rasi
@@ -89,6 +88,14 @@ rm ~/.config/waybar/configs/\[TOP\]\ Default\ Laptop_v2
 
 cp ~/dotfiles/.config/waybar/configs/\[TOP\]\ Default_v3 ~/.config/waybar/configs/
 cp ~/dotfiles/.config/waybar/configs/\[TOP\]\ Default\ Laptop_v2 ~/.config/waybar/configs/
+fi
+
+
+# preparing nvim
+mkdir ~/.config/nvim/
+rm -r -f ~/.config/nvim/
+cd $HOME
+
 
 # Tmxu setup
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
