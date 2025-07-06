@@ -188,7 +188,10 @@ local plugins = {
         "hyprls",
 
         -- Kotlin
-        "kotlin-language-server"
+        "kotlin-language-server",
+        
+        -- Lua
+        "lua-language-server"
       },
     },
     version = "1.9.0",
