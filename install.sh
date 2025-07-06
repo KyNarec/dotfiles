@@ -34,6 +34,7 @@ texlive
 texlive-langgerman
 texlive-langeuropean
 biber
+evince
 )
 
 read -p "$(tput setaf 6)Do you want to install advanced hyprland configs? May break your Hyprland config... (y/n(recomended))$(tput sgr0)" hypr 
@@ -94,6 +95,9 @@ rm ~/.config/waybar/configs/\[TOP\]\ Default\ Laptop_v2
 
 cp ~/dotfiles/.config/waybar/configs/\[TOP\]\ Default_v3 ~/.config/waybar/configs/
 cp ~/dotfiles/.config/waybar/configs/\[TOP\]\ Default\ Laptop_v2 ~/.config/waybar/configs/
+
+# Wlogout
+rm -r ~/.config/wlogout/
 
 echo -e "$(tput setaf 2)Finished applying custom dotfiles\n$(tput sgr0)"
 fi
