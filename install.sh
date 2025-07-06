@@ -71,6 +71,9 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 cp ~/dotfiles/refined.zsh-theme ~/.oh-my-zsh/themes/
 
+# Kitty config
+rm ~/.config/kitty/kitty.conf
+
 if [ "$hypr" == "y" ]; then
 echo -e "$(tput setaf 2)Applying custom dotfiles\n$(tput sgr0)"
 # hyprland configs 
