@@ -22,11 +22,11 @@ _darcs
 ^/LICENSE.*
 ^/COPYING
 
-#waybar configs
+# waybar configs
 /.config/waybar/configs/\[TOP\]\ Default_v3
 /.config/waybar/configs/\[TOP\]\ Default\ Laptop_v2
 
-#install Scripts
+# install Scripts
 ^/test.sh
 ^/install.sh
 ^/sshd_config
@@ -35,3 +35,6 @@ _darcs
 ^/fstab
 ^/mtab
 ^/refined.zsh-theme
+
+# wallpaper
+\wallpapers

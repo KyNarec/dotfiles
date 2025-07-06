@@ -38,6 +38,7 @@ evince
 )
 
 read -p "$(tput setaf 6)Do you want to install advanced hyprland configs? May break your Hyprland config... (y/n(recomended))$(tput sgr0)" hypr 
+read -p "$(tput setaf 6)Do you want to install Wallpapers?(Will delete all previous wallpapers!)(y/n)$(tput sgr0)" wallpapers
 read -p "$(tput setaf 6)Do you want to configure Wifi?(y/n)$(tput sgr0)" wifi
 read -p "$(tput setaf 6)Do you want to install fstab file?(y/n)$(tput sgr0)" fstab
 read -p "$(tput setaf 6)Do you want to configure SSH?(y/n)$(tput sgr0)" ssh
@@ -102,6 +103,12 @@ rm -r ~/.config/wlogout/
 echo -e "$(tput setaf 2)Finished applying custom dotfiles\n$(tput sgr0)"
 fi
 
+
+if [ "$wallpapers" == "y" ]; then
+rm -r ~/Pictures/wallpapers/
+cp -r ~/dotfiles/wallpapers/ ~/Pictures/wallpapers
+echo -e "$(tput setaf 2)Finished copying wallpapers\n$(tput sgr0)"
+fi
 
 # preparing nvim
 mkdir ~/.config/nvim/
