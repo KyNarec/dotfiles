@@ -14,7 +14,8 @@ sudo pacman -S git
 
 ### JaKooLit Hyprland dotfiles 
 
-[`Hyprland-Dots`](https://github.com/JaKooLit/Hyprland-Dots)
+I maded a clone of the state of the dotfiles when I originaly cloned them: 
+[`Hyprland-Dots`](https://github.com/KyNarec/Arch-Hyprland)
 
 ## Installation
 
