@@ -48,6 +48,7 @@ alias ls="eza -a --color=always --icons=always"
 alias vim=nvim
 alias v=nvim
 alias pull="git pull --rebase"
+alias checkout="git checkout -b"
 alias commit="git add . && git commit -a -m" 
 alias push="git push origin main"
 alias c="clear"
