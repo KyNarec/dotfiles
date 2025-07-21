@@ -86,3 +86,6 @@ lspconfig.kotlin_language_server.setup{
 lspconfig.qmlls.setup {
   cmd = {"qmlls6", "-E"}
 }
+lspconfig.svelte.setup{
+  ft = { "svelte" }
+}

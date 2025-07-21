@@ -210,6 +210,9 @@ local plugins = {
         --- rust
         "rust-analyzer",
 
+        --- svelte
+        "svelte-language-server",
+
         --- LaTex
         "texlab",
         "latexindent",
@@ -257,6 +260,7 @@ local plugins = {
         "xml",
         "yaml",
         "qmljs",
+        "svelte",
       },
     },
   },
