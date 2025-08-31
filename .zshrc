@@ -54,6 +54,8 @@ alias push="git push origin main"
 alias c="clear"
 alias update="sudo pacman -Syyu"
 alias t="tmux"
+alias 720="yt-dlp --no-mtime -S 'res:720' -R 'infinite' --file-access-retries 'infinite' --fragment-retries 'infinite' -o '%(title)s.%(ext)s' -P '~/Videos/'"
+alias 1080="yt-dlp --no-mtime -S 'res:1080' -R 'infinite' --file-access-retries 'infinite' --fragment-retries 'infinite' -o '%(title)s.%(ext)s' -P '~/Videos/'"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

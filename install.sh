@@ -16,6 +16,7 @@ zathura-pdf-mupdf
 zoxide
 # for qml lsp
 qt6-declarative
+npm
 )
 
 install_yay=(
@@ -118,6 +119,9 @@ cd $HOME
 
 # Tmux setup
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+tmux new-session -d && \
+tmux run-shell "$HOME/.tmux/plugins/tpm/scripts/install_plugins.sh" && \
+tmux kill-server
 
 cd ~/dotfiles && stow .
 echo
