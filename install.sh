@@ -79,6 +79,7 @@ rm ~/.config/kitty/kitty.conf
 
 if [ "$hypr" == "y" ]; then
 echo -e "$(tput setaf 2)Applying custom dotfiles\n$(tput sgr0)"
+
 # hyprland configs 
 rm ~/.config/hypr/UserScripts/QuickEdit.sh
 
@@ -116,7 +117,6 @@ mkdir ~/.config/nvim/
 rm -r -f ~/.config/nvim/
 cd $HOME
 
-
 # Tmux setup
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 tmux new-session -d && \
@@ -153,3 +153,5 @@ sudo cp ~/dotfiles/sshd_config /etc/ssh/
 sudo systemctl restart sshd.service
 echo -e "$(tput setaf 2)Configured ssh\n$(tput sgr0)"
 fi
+
+echo -e "$(tput setaf 2)Installation completed. It is recommended to reboot the system.\n$(tput sgr0)"
