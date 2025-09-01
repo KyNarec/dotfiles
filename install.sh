@@ -82,6 +82,7 @@ echo -e "$(tput setaf 2)Applying custom dotfiles\n$(tput sgr0)"
 
 # hyprland configs 
 rm ~/.config/hypr/UserScripts/QuickEdit.sh
+rm ~/.config/hypr/UserScripts/WallpaperSelect.sh
 
 rm ~/.config/hypr/configs/Keybinds.conf
 rm ~/.config/hypr/UserConfigs/UserSettings.conf
