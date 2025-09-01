@@ -37,4 +37,7 @@ _darcs
 ^/refined.zsh-theme
 
 # wallpaper
-\wallpapers
+^/wallpapers(/|$)
+
+# custom themes folder
+^/themes(/|$)
