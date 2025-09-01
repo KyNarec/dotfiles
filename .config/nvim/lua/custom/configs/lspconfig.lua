@@ -89,3 +89,6 @@ lspconfig.qmlls.setup {
 lspconfig.svelte.setup{
   ft = { "svelte" }
 }
+lspconfig.cssls.setup {
+  ft = { "css" }
+}

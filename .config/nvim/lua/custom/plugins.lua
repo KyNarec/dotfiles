@@ -224,7 +224,10 @@ local plugins = {
         "kotlin-language-server",
 
         -- Lua
-        "lua-language-server"
+        "lua-language-server",
+
+        -- CSS
+        "css-lsp"
       },
     },
     version = "1.9.0",
@@ -261,6 +264,7 @@ local plugins = {
         "yaml",
         "qmljs",
         "svelte",
+        "css",
       },
     },
   },
