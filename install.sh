@@ -90,6 +90,8 @@ rm ~/.config/hypr/UserConfigs/WindowRules.conf
 
 rm ~/.config/hypr/hyprlock.conf
 
+mv ~/.config/hypr/UserScripts/RainbowBorders.sh ~/.config/hypr/UserScripts/RainbowBorders.sh.disabled
+
 # rofi
 rm ~/.config/rofi/config-compact.rasi
 
