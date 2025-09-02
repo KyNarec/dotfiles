@@ -41,3 +41,6 @@ _darcs
 
 # custom themes folder
 ^/themes(/|$)
+
+# custom configs folder
+^/configs(/|$)

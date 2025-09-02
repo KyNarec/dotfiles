@@ -46,8 +46,8 @@ read -p "$(tput setaf 6)Do you want to configure SSH?(y/n)$(tput sgr0)" ssh
 read -p "$(tput setaf 6)Do you want to install texlive (LaTeX)?(y/n(recomended))$(tput sgr0)" latex 
 
 # Pacman candy etc.
-sudo cp -f ~/dotfiles/pacman.conf /etc/
-sudo cp -f ~/dotfiles/makepkg.conf /etc/
+sudo cp -f ~/dotfiles/configs/pacman.conf /etc/
+sudo cp -f ~/dotfiles/configs/makepkg.conf /etc/
 
 sudo pacman -Syyu --noconfirm
 
@@ -72,13 +72,13 @@ rm ~/.config/btop/btop.conf
 rm ~/.zshrc
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-cp ~/dotfiles/refined.zsh-theme ~/.oh-my-zsh/themes/
+cp ~/dotfiles/configs/refined.zsh-theme ~/.oh-my-zsh/themes/
 
 # Kitty config
 rm ~/.config/kitty/kitty.conf
 
 if [ "$hypr" == "y" ]; then
-echo -e "$(tput setaf 2)Applying custom dotfiles\n$(tput sgr0)"
+echo -e "$(tput setaf 2)Applying custom Hyprland dotfiles\n$(tput sgr0)"
 
 # hyprland configs 
 rm ~/.config/hypr/UserScripts/QuickEdit.sh
@@ -91,6 +91,9 @@ rm ~/.config/hypr/UserConfigs/WindowRules.conf
 rm ~/.config/hypr/hyprlock.conf
 
 mv ~/.config/hypr/UserScripts/RainbowBorders.sh ~/.config/hypr/UserScripts/RainbowBorders.sh.disabled
+
+# swaync
+rm ~/.config/swaync/config.json
 
 # rofi
 rm ~/.config/rofi/config-compact.rasi
@@ -105,7 +108,7 @@ cp ~/dotfiles/.config/waybar/configs/\[TOP\]\ Default\ Laptop_v2 ~/.config/wayba
 # Wlogout
 rm -r ~/.config/wlogout/
 
-echo -e "$(tput setaf 2)Finished applying custom dotfiles\n$(tput sgr0)"
+echo -e "$(tput setaf 2)Finished applying custom Hyprland dotfiles\n$(tput sgr0)"
 fi
 
 
@@ -144,7 +147,7 @@ fi
 # fstab
 if [ "$fstab" == "y"]; then
   echo -e "$(tput setaf 2)Copying fstab file\n$(tput sgr0)"
-  cp -f ~/dotfiles/fstab /etc/ 
+  cp -f ~/dotfiles/configs/fstab /etc/ 
 fi
 
 # SSH
@@ -152,7 +155,7 @@ if [ "$ssh" == "y" ]; then
 echo -e "$(tput setaf 2)Configuring ssh to listen on port 123\n$(tput sgr0)"
 sudo systemctl start sshd.service
 sudo rm /etc/ssh/sshd_config
-sudo cp ~/dotfiles/sshd_config /etc/ssh/
+sudo cp ~/dotfiles/configs/sshd_config /etc/ssh/
 sudo systemctl restart sshd.service
 echo -e "$(tput setaf 2)Configured ssh\n$(tput sgr0)"
 fi

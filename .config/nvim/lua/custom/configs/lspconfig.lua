@@ -90,5 +90,12 @@ lspconfig.svelte.setup{
   ft = { "svelte" }
 }
 lspconfig.cssls.setup {
-  ft = { "css" }
+  ft = { "css" },
+  settings = {
+    css = {
+      lint = {
+        unknownAtRules = "ignore", -- <--- THIS
+      },
+    },
+  },
 }
