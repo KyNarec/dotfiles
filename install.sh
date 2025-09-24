@@ -40,6 +40,7 @@ evince
 
 read -p "$(tput setaf 6)Do you want to install advanced hyprland configs? May break your Hyprland config... (y/n(recomended))$(tput sgr0)" hypr 
 read -p "$(tput setaf 6)Do you want to install Wallpapers?(Will delete all previous wallpapers!)(y/n)$(tput sgr0)" wallpapers
+read -p "$(tput setaf 6)Do you want custom german spell checking in neovim?(y/n)$(tput sgr0)" spellcheck
 read -p "$(tput setaf 6)Do you want to configure Wifi?(y/n)$(tput sgr0)" wifi
 read -p "$(tput setaf 6)Do you want to install fstab file?(y/n)$(tput sgr0)" fstab
 read -p "$(tput setaf 6)Do you want to configure SSH?(y/n)$(tput sgr0)" ssh
@@ -121,6 +122,10 @@ fi
 # preparing nvim
 mkdir ~/.config/nvim/
 rm -r -f ~/.config/nvim/
+
+if [ "$spellcheck" == "y" ]; then
+  rm -f ~/.local/share/nvim/spell/de.*
+fi
 cd $HOME
 
 # Tmux setup

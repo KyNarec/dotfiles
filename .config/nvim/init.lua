@@ -21,4 +21,11 @@ vim.opt.rtp:prepend(lazypath)
 require "plugins"
 
 -- autosave
---vim.cmd([[autocmd TextChanged,TextChangedI * silent! write]])
+--vim.cmd([[autocmd TextChanged,TextChangedI * silent! write]])-- Lua
+
+-- following code is used to make nvim use the correct runtime path so that spell checking works
+local data_path = vim.fn.stdpath("data")
+
+-- Prepend the Neovim data path to the runtimepath.
+-- This ensures Neovim looks for spell/ and other core files in the right spot.
+vim.o.runtimepath = data_path .. "," .. vim.o.runtimepath
