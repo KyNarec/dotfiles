@@ -277,6 +277,10 @@ local plugins = {
       vim.g.vimtex_view_method = "general"
       vim.g.vimtex_quickfix_ignore_filters = 'Underfull \\hbox'
       vim.g.vimtex_quickfix_mode = 1
+      vim.g.vimtex_compiler_latexmk = {
+        aux_dir = ".texfiles/",
+        -- out_dir = ".texfiles/",
+      }
     end,
   },
   -- Useless rn
@@ -304,7 +308,7 @@ local plugins = {
     ft = { "markdown" },
     build = function() vim.fn["mkdp#util#install"]() end,
   },
-  
+
   {
     "stevearc/dressing.nvim",
     event = "VeryLazy",
