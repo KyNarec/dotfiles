@@ -1,1 +1,5 @@
 /.config/tmux/plugins
+/.local/share/nvim/lazy
+/.local/share/nvim/mason
+/.local/share/nvim/nvchad
+/.local/share/nvim/nvim-java.log
