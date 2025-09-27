@@ -2,4 +2,6 @@
 /.local/share/nvim/lazy
 /.local/share/nvim/mason
 /.local/share/nvim/nvchad
-/.local/share/nvim/nvim-java.log
+/.local/share/nvim/neotest-java
+/.local/share/nvim/nvim*
+/.local/share/nvim/telescope_history
