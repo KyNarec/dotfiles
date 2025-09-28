@@ -16,7 +16,10 @@ zathura-pdf-mupdf
 zoxide
 # for qml lsp
 qt6-declarative
+qt6-multimedia-ffmpeg
+qt6-multimedia
 npm
+loupe
 )
 
 install_yay=(
