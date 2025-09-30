@@ -1,19 +1,31 @@
 local config = require("plugins.configs.lspconfig")
+-- (You already have config.on_attach, config.capabilities from your old setup)
 
-local on_attach = config.on_attach
-local capabilities = config.capabilities
+-- global defaults
+vim.lsp.config("*", {
+  on_attach = config.on_attach,
+  capabilities = config.capabilities,
+  flags = {
+    debounce_text_changes = 150,
+  },
+})
 
-local lspconfig = require("lspconfig")
+-- don't know if need but leave it there
+require("lspconfig")
 
-local util = require "lspconfig/util"
-
-local servers = {
-  "pyright",
-  "ruff",
-}
+-- Fix for lsp-line.nvim
+vim.api.nvim_create_autocmd("WinEnter", {
+  callback = function()
+    local floating = vim.api.nvim_win_get_config(0).relative ~= ""
+    vim.diagnostic.config({
+      virtual_text = floating,
+      virtual_lines = not floating,
+    })
+  end,
+})
 
 vim.diagnostic.config({
-  virtual_text = true,
+  -- virtual_text = false,
   signs = {
     text = {
       [vim.diagnostic.severity.ERROR] = "",
@@ -27,17 +39,12 @@ vim.diagnostic.config({
   severity_sort = true,
 })
 
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = 'sh',
-  callback = function()
-    vim.lsp.start({
-      name = 'bash-language-server',
-      cmd = { 'bash-language-server', 'start' },
-    })
-  end,
+vim.lsp.config("bashls", {
+  cmd = { "bash-language-server", "start" },
+  filetypes = { "sh" },
 })
 
-lspconfig.texlab.setup {
+vim.lsp.config("texlab", {
   settings = {
     texlab = {
       diagnostics = {
@@ -47,55 +54,78 @@ lspconfig.texlab.setup {
       },
     },
   },
-}
--- lspconfig.jdtls.setup({})
-
-lspconfig.clangd.setup {
-  on_attach = function(client, bufnr)
-    client.server_capabilities.signatureHelpProvider = false
-    on_attach(client, bufnr)
-  end,
-  capabilities = capabilities,
-}
-
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup({
-    on_attach = on_attach,
-    capabilities = capabilities,
-    filetypes = { "python" },
-  })
-end
-
--- Hyprlang LSP
-vim.api.nvim_create_autocmd({'BufEnter', 'BufWinEnter'}, {
-		pattern = {"*.hl", "Settings.conf", "Keybinds.conf", "Monitors.conf", "WindowRules.conf", "ENVariables.conf", "Startup_Apps.conf", "WorkspaceRules.conf", "LaptopDisplay.conf", "UserKeybinds.conf", "Laptops.conf", "UserSettings.conf"},
-		callback = function(event)
-				-- print(string.format("starting hyprls for %s", vim.inspect(event)))
-				vim.lsp.start {
-						name = "hyprlang",
-						cmd = {"hyprls"},
-						root_dir = vim.fn.getcwd(),
-				}
-		end
 })
 
-lspconfig.kotlin_language_server.setup{
-  ft = { "kotlin "}
-}
+vim.lsp.config("clangd", {
+  on_attach = function(client, bufnr)
+    client.server_capabilities.signatureHelpProvider = false
+    config.on_attach(client, bufnr)
+  end,
+  capabilities = config.capabilities,
+})
 
-lspconfig.qmlls.setup {
-  cmd = {"qmlls6", "-E"}
-}
-lspconfig.svelte.setup{
-  ft = { "svelte" }
-}
-lspconfig.cssls.setup {
-  ft = { "css" },
+vim.lsp.config("pyright", {
+  filetypes = { "python" }
+})
+
+-- Hyprlang LSP
+vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWinEnter' }, {
+  pattern = { "*.hl", "Settings.conf", "Keybinds.conf", "Monitors.conf", "WindowRules.conf", "ENVariables.conf", "Startup_Apps.conf", "WorkspaceRules.conf", "LaptopDisplay.conf", "UserKeybinds.conf", "Laptops.conf", "UserSettings.conf" },
+  callback = function(event)
+    vim.lsp.start {
+      name = "hyprlang",
+      cmd = { "hyprls" },
+      root_dir = vim.fn.getcwd(),
+    }
+  end
+})
+
+vim.lsp.config("qmlls", {
+  cmd = { "qmlls6", "-E" }
+})
+
+vim.lsp.config("svelte", {
+  filetypes = { "svelte" }
+})
+
+vim.lsp.config("kotlin_language_server", {
+  filetypes = { "kotlin " }
+})
+
+vim.lsp.config("cssls", {
+  filetypes = { "css" },
   settings = {
     css = {
       lint = {
-        unknownAtRules = "ignore", -- <--- THIS
+        unknownAtRules = "ignore",
       },
     },
   },
-}
+})
+
+vim.lsp.config("ltex_plus", {
+  cmd = { "ltex-ls-plus" },
+  filetypes = { "bib", "tex" },
+  root_markers = { ".git" },
+  settings = {
+    ltex = {
+      language = "de-DE",
+      enabled = { "latex", "tex" },
+    },
+  },
+  on_attach = function(client, bufnr)
+    require("ltex-utils").on_attach(bufnr)
+    vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, { desc = "LSP Code Actions", buffer = bufnr })
+  end,
+})
+
+vim.lsp.enable({
+  "bashls",
+  "pyright",
+  "ruff",
+  "clangd",
+  "texlab",
+  "cssls",
+  "ltex_plus",
+  "lua_ls"
+})

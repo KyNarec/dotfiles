@@ -28,58 +28,55 @@ local plugins = {
       require("neotest").setup({
         adapters = {
           require("neotest-java")({
-              junit_jar = nil, -- default: stdpath("data") .. /nvim/neotest-java/junit-platform-console-standalone-[version].jar
-  incremental_build = true
+            junit_jar = nil, -- default: stdpath("data") .. /nvim/neotest-java/junit-platform-console-standalone-[version].jar
+            incremental_build = true
           }),
         },
       })
     end,
   },
 
-  {
-    "nvim-java/nvim-java",
-    ft = { "java" },
-    lazy = false,
-    dependencies = {
-      "nvim-java/lua-async-await",
-      "nvim-java/nvim-java-core",
-      "nvim-java/nvim-java-test",
-      "nvim-java/nvim-java-dap",
-      "MunifTanjim/nui.nvim",
-      "neovim/nvim-lspconfig",
-      "mfussenegger/nvim-dap",
-      {
-        "williamboman/mason.nvim",
-        opts = {
-          registries = {
-            "github:nvim-java/mason-registry",
-            "github:mason-org/mason-registry",
-          },
-        },
-      },
-    },
-    config = function()
-      require("java").setup {}
-      require("lspconfig").jdtls.setup {
-        on_attach = require("plugins.configs.lspconfig").on_attach,
-        capabilities = require("plugins.configs.lspconfig").capabilities,
-        filetypes = { "java" },
-        settings = {
-          java = {
-            project = {
-              referencedLibraries = {
-                "libs/*",
-                -- "+libs/binbaum_ohne.jar",
-                -- "+libs/binbaum_mit.jar",
-                -- "+libs/flatlaf-3.5.1.jar",
-                "+libs/*"
-              }
-            }
-          }
-        }
-      }
-    end,
-  },
+  -- {
+  --   "nvim-java/nvim-java",
+  --   ft = { "java" },
+  --   lazy = false,
+  --   dependencies = {
+  --     "nvim-java/lua-async-await",
+  --     "nvim-java/nvim-java-core",
+  --     "nvim-java/nvim-java-test",
+  --     "nvim-java/nvim-java-dap",
+  --     "MunifTanjim/nui.nvim",
+  --     "neovim/nvim-lspconfig",
+  --     "mfussenegger/nvim-dap",
+  --     {
+  --       "williamboman/mason.nvim",
+  --       opts = {
+  --         registries = {
+  --           "github:nvim-java/mason-registry",
+  --           "github:mason-org/mason-registry",
+  --         },
+  --       },
+  --     },
+  --   },
+  --   config = function()
+  --     -- require("java").setup {}
+  --     vim.lsp.config("jdtls", {
+  --       on_attach = require("plugins.configs.lspconfig").on_attach,
+  --       capabilities = require("plugins.configs.lspconfig").capabilities,
+  --       filetypes = { "java" },
+  --       settings = {
+  --         java = {
+  --           project = {
+  --             referencedLibraries = {
+  --               "libs/*",
+  --               "+libs/*"
+  --             }
+  --           }
+  --         }
+  --       }
+  --     })
+  --   end,
+  -- },
 
   {
     "rcarriga/nvim-dap-ui",
@@ -141,7 +138,7 @@ local plugins = {
   {
     "rust-lang/rust.vim",
     lazy = false,
-    ft = "rust",
+    filetypes = "rust",
     init = function()
       vim.g.rustfmt_autosave = 1
     end
@@ -190,7 +187,7 @@ local plugins = {
         "jdtls",
         "java-test",
         "java-debug-adapter",
-        "openjdk-23",
+        -- "openjdk-23",
 
         --- bash
         "bash-language-server",
@@ -227,13 +224,16 @@ local plugins = {
         "lua-language-server",
 
         -- CSS
-        "css-lsp"
+        "css-lsp",
+
+        -- Spell checking
+        "ltex-ls-plus"
       },
     },
-    version = "1.9.0",
+    version = "2.1.0",
   },
 
-  { "mason-org/mason-lspconfig.nvim", version = "1.9.0" },
+  { "mason-org/mason-lspconfig.nvim", version = "2.1.0" },
 
   {
     "neovim/nvim-lspconfig",
@@ -241,7 +241,6 @@ local plugins = {
       require "plugins.configs.lspconfig"
       require "custom.configs.lspconfig"
     end,
-    -- require('lspconfig').jdtls.setup({})
   },
 
   {
@@ -283,22 +282,14 @@ local plugins = {
       }
     end,
   },
-  -- Useless rn
+
   {
     'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
     lazy = false,
     dependencies = { 'neovim/nvim-lspconfig' },
     config = function()
-      -- Safely require the plugin
-      local ok, lsp_lines = pcall(require, "lsp_lines")
-      if not ok then return end
-
-      -- Initialize lsp_lines
-      -- vim.diagnostic.config({ virtual_text = false }) -- commented out, because it brakes the plugin
-
-      lsp_lines.setup()
+      require("lsp_lines").setup()
     end,
-
   },
 
   -- to fully build this plugin, go into any markdown file and do: :call mkdp#util#install()
@@ -314,5 +305,18 @@ local plugins = {
     event = "VeryLazy",
   },
 
+  {
+    "jhofscheier/ltex-utils.nvim",
+    dependencies = {
+      "neovim/nvim-lspconfig",
+      "nvim-telescope/telescope.nvim", -- Used for selecting code actions
+    },
+    config = function()
+      require("ltex-utils").setup({
+        -- Optional: Configure where dictionaries are saved, etc.
+        -- Defaults are usually fine.
+      })
+    end,
+  },
 }
 return plugins
