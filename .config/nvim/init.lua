@@ -1,31 +1,39 @@
-require "core"
+vim.g.base46_cache = vim.fn.stdpath "data" .. "/base46/"
+vim.g.mapleader = " "
 
-local custom_init_path = vim.api.nvim_get_runtime_file("lua/custom/init.lua", false)[1]
-
-if custom_init_path then
-  dofile(custom_init_path)
-end
-
-require("core.utils").load_mappings()
-
+-- bootstrap lazy and all plugins
 local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 
--- bootstrap lazy.nvim!
-if not vim.loop.fs_stat(lazypath) then
-  require("core.bootstrap").gen_chadrc_template()
-  require("core.bootstrap").lazy(lazypath)
+if not vim.uv.fs_stat(lazypath) then
+    local repo = "https://github.com/folke/lazy.nvim.git"
+    vim.fn.system { "git", "clone", "--filter=blob:none", repo, "--branch=stable", lazypath }
 end
 
-dofile(vim.g.base46_cache .. "defaults")
 vim.opt.rtp:prepend(lazypath)
-require "plugins"
 
--- autosave
---vim.cmd([[autocmd TextChanged,TextChangedI * silent! write]])-- Lua
+local lazy_config = require "configs.lazy"
 
--- following code is used to make nvim use the correct runtime path so that spell checking works
-local data_path = vim.fn.stdpath("data")
+-- load plugins
+require("lazy").setup({
+    {
+        "NvChad/NvChad",
+        lazy = false,
+        branch = "v2.5",
+        import = "nvchad.plugins",
+    },
 
--- Prepend the Neovim data path to the runtimepath.
--- This ensures Neovim looks for spell/ and other core files in the right spot.
-vim.o.runtimepath = data_path .. "," .. vim.o.runtimepath
+    { import = "plugins" },
+}, lazy_config)
+
+-- load theme
+dofile(vim.g.base46_cache .. "defaults")
+dofile(vim.g.base46_cache .. "statusline")
+
+require "options"
+require "autocmds"
+
+vim.schedule(function()
+    require "mappings"
+end)
+
+require("luasnip.loaders.from_lua").load { paths = "~/.config/nvim/snippets/" }
