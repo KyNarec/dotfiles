@@ -152,7 +152,7 @@ ls.add_snippets("tex", {
         "mcite",
         fmt(
             [[
-    \cite[vgl. ][S. {}]{{{}}}[S. {}]{{{}}}
+    \mcite[vgl. ][S. {}]{{{}}}[S. {}]{{{}}}
     ]],
             {
                 i(1, ""),
