@@ -250,11 +250,12 @@ return {
             "neovim/nvim-lspconfig",
             "nvim-telescope/telescope.nvim", -- Used for selecting code actions
         },
+        enabled = { "latex", "tex", "bib", "markdown" },
         config = function()
             require("ltex-utils").setup {
                 -- Optional: Configure where dictionaries are saved, etc.
                 -- Defaults are usually fine.
-                path = ".texfiles/",
+                path = ".ltex/",
             }
         end,
     },

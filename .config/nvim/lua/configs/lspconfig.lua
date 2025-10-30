@@ -41,6 +41,9 @@ vim.lsp.config("texlab", {
                     "(badness 10000)",
                 },
             },
+            experimental = {
+                citationCommands = { "cite", "parencite", "footcite", "mcite" },
+            },
         },
     },
 })
