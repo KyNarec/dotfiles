@@ -1,7 +1,7 @@
 #!/bin/bash
 install_pacman=(
 neovim
-#nemo
+nemo
 stow
 btop
 #yay
@@ -80,6 +80,12 @@ cp ~/dotfiles/configs/refined.zsh-theme ~/.oh-my-zsh/themes/
 
 # Kitty config
 rm ~/.config/kitty/kitty.conf
+
+# Nemo setutp
+echo -e "$(tput setaf 2)Setting Nemo as default file manager\n$(tput sgr0)"
+xdg-mime default nemo.desktop inode/directory application/x-gnome-saved-search
+echo -e "$(tput setaf 2)Setting Kitty as default Terminal in Nemo\n$(tput sgr0)"
+gsettings set org.cinnamon.desktop.default-applications.terminal exec kitty   
 
 if [ "$hypr" == "y" ]; then
 echo -e "$(tput setaf 2)Applying custom Hyprland dotfiles\n$(tput sgr0)"
