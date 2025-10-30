@@ -146,3 +146,34 @@ ls.add_snippets("tex", {
         )
     ),
 })
+
+ls.add_snippets("tex", {
+    s(
+        "mcite",
+        fmt(
+            [[
+    \cite[vgl. ][S. {}]{{{}}}[S. {}]{{{}}}
+    ]],
+            {
+                i(1, ""),
+                i(2, "citation1"),
+                i(3, ""),
+                i(4, "citation2"),
+            }
+        )
+    ),
+})
+
+ls.add_snippets("tex", {
+    s(
+        "input",
+        fmt(
+            [[
+    \input{{{}}}
+    ]],
+            {
+                i(1, "path"),
+            }
+        )
+    ),
+})
