@@ -37,3 +37,4 @@ vim.schedule(function()
 end)
 
 require("luasnip.loaders.from_lua").load { paths = "~/.config/nvim/snippets/" }
+vim.opt.relativenumber = true

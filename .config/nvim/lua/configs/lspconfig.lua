@@ -150,23 +150,26 @@ vim.lsp.config("ltex_plus", {
     end,
 })
 
-vim.lsp.config("jdtls", {
-    on_attach = function(client, bufnr)
-        local opts = { noremap = true, silent = true }
-        vim.api.nvim_buf_set_keymap(bufnr, "n", "jr", "lua require('java').runner.built_in.run_app({})", opts)
-    end,
-    filetypes = { "java" },
-    settings = {
-        java = {
-            project = {
-                referencedLibraries = {
-                    "libs/*",
-                    "+libs/*",
-                },
-            },
-        },
-    },
-})
+-- Uncomment when nvim-java fixes 'require("lspconfig)'
+-- https://github.com/nvim-java/nvim-java/issues/427
+-- vim.lsp.config("jdtls", {
+--     on_attach = function(client, bufnr)
+--         local opts = { noremap = true, silent = true }
+--         vim.api.nvim_buf_set_keymap(bufnr, "n", "jr", "lua require('java').runner.built_in.run_app({})", opts)
+--     end,
+--     filetypes = { "java" },
+--     settings = {
+--         java = {
+--             project = {
+--                 referencedLibraries = {
+--                     "libs/*",
+--                     "+libs/*",
+--                 },
+--             },
+--         },
+--     },
+-- })
+
 vim.lsp.enable(servers)
 
 -- read :h vim.lsp.config for changing options of lsp servers

@@ -77,6 +77,7 @@ return {
             "MunifTanjim/nui.nvim",
             "neovim/nvim-lspconfig",
             "mfussenegger/nvim-dap",
+            -- "mfussenegger/nvim-jdtls",
             {
                 "williamboman/mason.nvim",
                 opts = {
@@ -89,6 +90,24 @@ return {
         },
         config = function()
             require("java").setup {}
+            require("lspconfig").jdtls.setup {
+                on_attach = function(client, bufnr)
+                    local opts = { noremap = true, silent = true, buffer = bufnr }
+                    vim.keymap.set("n", "jr", function()
+                        require("java").runner.built_in.run_app {}
+                    end, opts)
+                end,
+                settings = {
+                    java = {
+                        project = {
+                            referencedLibraries = {
+                                "libs/*",
+                                "+libs/*",
+                            },
+                        },
+                    },
+                },
+            }
         end,
     },
 
@@ -259,7 +278,14 @@ return {
             }
         end,
     },
+<<<<<<< HEAD
     {
         "ron-rs/ron.vim",
+=======
+
+    {
+        "ThePrimeagen/vim-be-good",
+        lazy = false,
+>>>>>>> ae64937 (fixed java and added vim-be-good plugin to train vim keybinds)
     },
 }
