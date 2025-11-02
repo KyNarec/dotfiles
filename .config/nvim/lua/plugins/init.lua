@@ -278,14 +278,11 @@ return {
             }
         end,
     },
-<<<<<<< HEAD
     {
         "ron-rs/ron.vim",
-=======
-
+    },
     {
         "ThePrimeagen/vim-be-good",
         lazy = false,
->>>>>>> ae64937 (fixed java and added vim-be-good plugin to train vim keybinds)
     },
 }
