@@ -1,0 +1,76 @@
+@import url('https://cdn.jsdelivr.net/npm/@catppuccin/palette/css/catppuccin.css');
+
+/* Catppuccin Mocha Style */
+
+window {
+  background: transparent;
+}
+
+box.main {
+  padding: 5px;
+  margin: 10px;
+  border-radius: 10px;
+  border: 2px solid var(--ctp-mocha-lavender);
+  background-color: var(--ctp-mocha-crust);
+  box-shadow: 0 0 5px black;
+}
+
+text {
+  font-size: 25px;
+  min-height: 30px;
+  padding: 5px;
+  border-radius: 5px;
+  color: var(--ctp-mocha-text);
+}
+
+.matches {
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 10px;
+}
+
+box.plugin:first-child {
+  margin-top: 5px;
+}
+
+box.plugin.info {
+  min-width: 200px;
+}
+
+list.plugin {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+label.match {
+  font-size: 20px;
+  color: var(--ctp-mocha-text);
+}
+
+label.match.description {
+  font-size: 15px;
+  color: var(--ctp-mocha-subtext0);
+}
+
+label.plugin.info {
+  font-size: 20px;
+  color: var(--ctp-mocha-text);
+}
+
+.match {
+  background: transparent;
+}
+
+.match:selected {
+  border-left: 4px solid var(--ctp-mocha-mauve);
+  background: transparent;
+  animation: fade 0.1s linear;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

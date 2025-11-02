@@ -1,6 +1,18 @@
 require("nvchad.configs.lspconfig").defaults()
 
-local servers = { "html", "cssls", "bashls", "pyright", "ruff", "clangd", "texlab", "ltex_plus", "lua_ls", "jdtls" }
+local servers = {
+    "html",
+    "cssls",
+    "bashls",
+    "pyright",
+    "ruff",
+    "clangd",
+    "texlab",
+    "ltex_plus",
+    "lua_ls",
+    "jdtls",
+    "css-variables-language-server",
+}
 
 -- Fix for lsp-line.nvim
 vim.api.nvim_create_autocmd("WinEnter", {
@@ -81,6 +93,11 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
             root_dir = vim.fn.getcwd(),
         }
     end,
+})
+
+vim.lsp.config("css-variables-language-server", {
+    filetypes = { "css" },
+    cmd = { "css-variables-language-server", "--stdio" },
 })
 
 vim.lsp.config("qmlls", {

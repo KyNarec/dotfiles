@@ -259,4 +259,7 @@ return {
             }
         end,
     },
+    {
+        "ron-rs/ron.vim",
+    },
 }

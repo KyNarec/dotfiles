@@ -26,6 +26,14 @@ _darcs
 /.config/waybar/configs/\[TOP\]\ Default_v3
 /.config/waybar/configs/\[TOP\]\ Default\ Laptop_v2
 
+# nvim stuff
+/.local/share/nvim/lazy
+/.local/share/nvim/mason
+/.local/share/nvim/nvchad
+/.local/share/nvim/neotest-java
+/.local/share/nvim/nvim*
+/.local/share/nvim/telescope_history
+
 # install Scripts
 ^/test.sh
 ^/install.sh
