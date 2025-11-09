@@ -24,6 +24,7 @@ loupe
 
 install_yay=(
 qwinff
+anyrun
 vesktop
 brave-bin
 gearlever
