@@ -285,4 +285,87 @@ return {
         "ThePrimeagen/vim-be-good",
         lazy = false,
     },
+    -- https://github.com/folke/snacks.nvim?tab=readme-ov-file#-features
+    {
+        "folke/snacks.nvim",
+        priority = 1000,
+        lazy = false,
+        ---@type snacks.Config
+        opts = {
+            -- your configuration comes here
+            -- or leave it empty to use the default settings
+            -- refer to the configuration section below
+            bigfile = { enabled = true },
+            dashboard = { enabled = false },
+            explorer = { enabled = true },
+            indent = { enabled = true },
+            input = { enabled = true },
+            picker = { enabled = true },
+            notifier = { enabled = true },
+            quickfile = { enabled = true },
+            scope = { enabled = true },
+            scroll = { enabled = true },
+            statuscolumn = { enabled = true },
+            words = { enabled = true },
+        },
+        keys = {
+
+            {
+                "<leader><space>",
+                function()
+                    Snacks.picker.smart()
+                end,
+                desc = "Smart Find Files",
+            },
+
+            {
+                "<leader>gb",
+                function()
+                    Snacks.picker.git_branches()
+                end,
+                desc = "Git Branches",
+            },
+            {
+                "<leader>gs",
+                function()
+                    Snacks.picker.git_status()
+                end,
+                desc = "Git Status",
+            },
+            {
+                "<leader>gd",
+                function()
+                    Snacks.picker.git_diff()
+                end,
+                desc = "Git Diff (Hunks)",
+            },
+            {
+                "<leader>z",
+                function()
+                    Snacks.zen()
+                end,
+                desc = "Toggle Zen Mode",
+            },
+            {
+                "<leader>gB",
+                function()
+                    Snacks.gitbrowse()
+                end,
+                desc = "Git Browse",
+                mode = { "n", "v" },
+            },
+            -- { "<leader>gg", function()
+            --         Snacks.lazygit()
+            --     end,
+            --     desc = "Lazygit",
+            -- },
+            {
+                "<leader>Z",
+                function()
+                    Snacks.zen.zoom()
+                end,
+                desc = "Toggle Zoom",
+            },
+        },
+    },
 }
