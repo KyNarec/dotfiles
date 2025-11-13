@@ -300,7 +300,16 @@ return {
             explorer = { enabled = true },
             indent = { enabled = true },
             input = { enabled = true },
-            picker = { enabled = true },
+            picker = {
+                enabled = true,
+                win = {
+                    list = {
+                        keys = {
+                            ["<leader>e"] = "explorer_focus",
+                        },
+                    },
+                },
+            },
             notifier = { enabled = true },
             quickfile = { enabled = true },
             scope = { enabled = true },
