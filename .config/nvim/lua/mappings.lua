@@ -21,12 +21,12 @@ map(
     { desc = "Show diagnostics in current line" }
 )
 
-local nomap = vim.keymap.del
-nomap("n", "<C-n>")
-nomap("n", "<leader>e")
-map("n", "<C-n>", function()
-    Snacks.explorer.open()
-end)
-map("n", "<leader>e", function()
-    Snacks.explorer.open()
-end)
+-- local nomap = vim.keymap.del
+-- nomap("n", "<C-n>")
+-- nomap("n", "<leader>e")
+-- map("n", "<C-n>", function()
+--     Snacks.explorer.open()
+-- end)
+-- map("n", "<leader>e", function()
+--     Snacks.explorer.open()
+-- end)

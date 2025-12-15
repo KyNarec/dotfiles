@@ -6,7 +6,7 @@
 WALL_DIR="$HOME/.local/share/Steam/steamapps/workshop/content/431960"
 
 # Command to run wallpaper engine
-RUN_CMD="linux-wallpaperengine --silent --screen-root DP-3 --screen-root HDMI-A-1"
+RUN_CMD="linux-wallpaperengine --silent --screen-root DP-3 --screen-root HDMI-A-1 --screen-root eDP-1 --scaling fill"
 
 # Rofi command config (you can adjust the .rasi style to make it show image grid)
 ROFI_CMD="rofi -dmenu -i -config ~/.config/rofi/config-wallpaper.rasi"

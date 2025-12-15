@@ -301,7 +301,7 @@ return {
             indent = { enabled = true },
             input = { enabled = true },
             picker = {
-                enabled = true,
+                enabled = false,
                 win = {
                     list = {
                         keys = {
