@@ -1,10 +1,10 @@
 local pkgs = {
 
     --- java
-    "jdtls",
-    "java-test",
-    "java-debug-adapter",
-    -- "openjdk-23",
+    -- "jdtls",
+    -- "java-test",
+    -- "java-debug-adapter",
+    -- "openjdk-21",
 
     --- bash
     "bash-language-server",

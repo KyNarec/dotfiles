@@ -13,9 +13,9 @@ return {
         end,
     },
 
-    {
-        "nvim-neotest/nvim-nio",
-    },
+    -- {
+    --     "nvim-neotest/nvim-nio",
+    -- },
 
     -- {
     --     "rcasia/neotest-java",
@@ -46,68 +46,28 @@ return {
     --         }
     --     end,
     -- },
-    {
-        "nvim-neotest/neotest",
-        dependencies = {
-            "nvim-neotest/nvim-nio",
-            "nvim-lua/plenary.nvim",
-            "antoinemadec/FixCursorHold.nvim",
-            "nvim-treesitter/nvim-treesitter",
-        },
-        config = function()
-            -- NOTE: Neotest-java is a dependency of nvim-java, so we check for it here.
-            local java_adapter = require "neotest-java"
-            require("neotest").setup {
-                adapters = {
-                    java_adapter, -- Rely on nvim-java's test setup
-                },
-            }
-        end,
-    },
+    -- { "nvim-neotest/neotest",
+    --     dependencies = {
+    --         "nvim-neotest/nvim-nio",
+    --         "nvim-lua/plenary.nvim",
+    --         "antoinemadec/FixCursorHold.nvim",
+    --         "nvim-treesitter/nvim-treesitter",
+    --     },
+    --     config = function()
+    --         -- NOTE: Neotest-java is a dependency of nvim-java, so we check for it here.
+    --         local java_adapter = require "neotest-java"
+    --         require("neotest").setup {
+    --             adapters = {
+    --                 java_adapter, -- Rely on nvim-java's test setup
+    --             },
+    --         }
+    --     end,
+    -- },
 
     {
         "nvim-java/nvim-java",
-        ft = { "java" },
-        lazy = false,
-        dependencies = {
-            "nvim-java/lua-async-await",
-            "nvim-java/nvim-java-core",
-            "nvim-java/nvim-java-test",
-            "nvim-java/nvim-java-dap",
-            "MunifTanjim/nui.nvim",
-            "neovim/nvim-lspconfig",
-            "mfussenegger/nvim-dap",
-            -- "mfussenegger/nvim-jdtls",
-            {
-                "williamboman/mason.nvim",
-                opts = {
-                    registries = {
-                        "github:nvim-java/mason-registry",
-                        "github:mason-org/mason-registry",
-                    },
-                },
-            },
-        },
         config = function()
-            require("java").setup {}
-            require("lspconfig").jdtls.setup {
-                on_attach = function(client, bufnr)
-                    local opts = { noremap = true, silent = true, buffer = bufnr }
-                    vim.keymap.set("n", "jr", function()
-                        require("java").runner.built_in.run_app {}
-                    end, opts)
-                end,
-                settings = {
-                    java = {
-                        project = {
-                            referencedLibraries = {
-                                "libs/*",
-                                "+libs/*",
-                            },
-                        },
-                    },
-                },
-            }
+            require("java").setup()
         end,
     },
 
