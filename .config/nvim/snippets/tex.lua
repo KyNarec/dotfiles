@@ -177,3 +177,47 @@ ls.add_snippets("tex", {
         )
     ),
 })
+
+ls.add_snippets("tex", {
+    s(
+        "cdot",
+        fmt(
+            [[
+    \cdot {}
+    ]],
+            {
+                i(0, ""),
+            }
+        )
+    ),
+})
+
+ls.add_snippets("tex", {
+    s(
+        "frac",
+        fmt(
+            [[
+    \frac{{{}}}{{{}}}{}
+    ]],
+            {
+                i(1, ""),
+                i(2, ""),
+                i(3, ""),
+            }
+        )
+    ),
+})
+
+ls.add_snippets("tex", {
+    s(
+        "sec*",
+        fmt(
+            [[
+    \section*{{{}}}
+    ]],
+            {
+                i(1, ""),
+            }
+        )
+    ),
+})

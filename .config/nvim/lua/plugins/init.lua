@@ -274,6 +274,7 @@ return {
             require("ltex-utils").setup {
                 -- Optional: Configure where dictionaries are saved, etc.
                 -- Defaults are usually fine.
+                language = { "en-US", "de-DE" },
                 path = ".ltex/",
             }
         end,
@@ -375,6 +376,31 @@ return {
                 end,
                 desc = "Toggle Zoom",
             },
+        },
+    },
+    -- {
+    --     "vhyrro/luarocks.nvim",
+    --     priority = 1001, -- this plugin needs to run before anything else
+    --     opts = {
+    --         rocks = { "magick" },
+    --     },
+    -- },
+    -- {
+    --     "3rd/image.nvim",
+    --     dependencies = { "luarocks.nvim" },
+    --     config = function()
+    --         require("image").setup {
+    --             backend = "kitty",
+    --             max_height_window_percentage = 50,
+    --             hijack_file_patterns = { "*.png", "*.jpg", "*.jpeg", "*.gif", "*.webp", "*.svg" },
+    --         }
+    --     end,
+    -- },
+    {
+        "3rd/image.nvim",
+        build = false, -- so that it doesn't build the rock https://github.com/3rd/image.nvim/issues/91#issuecomment-2453430239
+        opts = {
+            processor = "magick_cli",
         },
     },
 }
