@@ -45,5 +45,8 @@ local pkgs = {
 
     -- Spell checking
     "ltex-ls-plus",
+
+    -- Typst
+    "tinymist",
 }
 return pkgs

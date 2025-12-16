@@ -12,6 +12,7 @@ local servers = {
     "lua_ls",
     "jdtls",
     "css-variables-language-server",
+    "tinymist",
 }
 
 -- Fix for lsp-line.nvim
@@ -148,6 +149,17 @@ vim.lsp.config("ltex_plus", {
             { desc = "LSP Code Actions", buffer = bufnr }
         )
     end,
+})
+
+vim.lsp.config("tinymist", {
+    cmd = { "tinymist" },
+
+    filetypes = { "typst" },
+
+    settings = {
+
+        -- ...
+    },
 })
 
 -- Uncomment when nvim-java fixes 'require("lspconfig)'

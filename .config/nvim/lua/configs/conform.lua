@@ -4,6 +4,7 @@ local options = {
         -- css = { "prettier" },
         -- html = { "prettier" },
         tex = { "latexindent" },
+        typst = { "tinymist" },
     },
 
     format_on_save = {

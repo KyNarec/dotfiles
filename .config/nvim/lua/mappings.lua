@@ -21,6 +21,8 @@ map(
     { desc = "Show diagnostics in current line" }
 )
 
+-- map("n", "<leader>tc", "<Cmd>lua tinymist.exportPdf()<CR>", { desc = "Typst Compile" })
+
 -- local nomap = vim.keymap.del
 -- nomap("n", "<C-n>")
 -- nomap("n", "<leader>e")
