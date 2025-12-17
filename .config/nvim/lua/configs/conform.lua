@@ -5,6 +5,7 @@ local options = {
         -- html = { "prettier" },
         tex = { "latexindent" },
         typst = { "typstyle" },
+        kotlin = { "ktlint" },
     },
 
     format_on_save = {

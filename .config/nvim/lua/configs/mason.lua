@@ -36,6 +36,7 @@ local pkgs = {
 
     -- Kotlin
     "kotlin-language-server",
+    "ktlint",
 
     -- Lua
     "lua-language-server",

@@ -14,6 +14,7 @@ local servers = {
     "css-variables-language-server",
     "tinymist",
     "jdtls",
+    "kotlin_language_server",
 }
 
 -- Fix for lsp-line.nvim
@@ -111,7 +112,7 @@ vim.lsp.config("svelte", {
 })
 
 vim.lsp.config("kotlin_language_server", {
-    filetypes = { "kotlin " },
+    filetypes = { "kotlin", "kt", "kts" },
 })
 
 vim.lsp.config("cssls", {
