@@ -22,7 +22,14 @@ map(
 )
 
 -- map("n", "<leader>tc", "<Cmd>lua tinymist.exportPdf()<CR>", { desc = "Typst Compile" })
-
+-- map("n", "<leader>tpm", "<Cmd>lua tinymist.pinMainToCurrent <CR>")
+vim.keymap.set("n", "<leader>tpm", function()
+    vim.lsp.buf.execute_command {
+        command = "tinymist.pinMain",
+        arguments = { vim.api.nvim_buf_get_name(0) },
+    }
+    print("Typst: Pinned " .. vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ":t"))
+end, { desc = "Typst: Pin Main File" })
 -- local nomap = vim.keymap.del
 -- nomap("n", "<C-n>")
 -- nomap("n", "<leader>e")

@@ -155,7 +155,7 @@ vim.lsp.config("ltex_plus", {
 
 vim.lsp.config("tinymist", {
     cmd = { "tinymist" },
-    filetypes = { "typst" },
+    filetypes = { "typst", "yaml" },
     settings = {
         formatterMode = "typstyle",
         exportPdf = "onType",
