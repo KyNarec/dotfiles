@@ -124,7 +124,7 @@ return {
 
     {
         "mrcjkb/rustaceanvim",
-        version = "^6", -- Recommended
+        version = "^7", -- Recommended
         lazy = false,
         ft = { "rust" }, -- Load only for Rust files
     },
