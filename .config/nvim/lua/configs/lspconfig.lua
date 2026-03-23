@@ -66,6 +66,33 @@ vim.lsp.config("texlab", {
 vim.lsp.config("clangd", {
     on_attach = function(client, bufnr)
         client.server_capabilities.signatureHelpProvider = false
+
+        vim.keymap.set("n", "<leader>rc", function()
+            -- Made with Google Gemini
+            -- 1. Save the file first
+            vim.cmd "write"
+
+            -- 2. Dynamically get the filename without .c
+            local file_no_ext = vim.fn.expand "%:r"
+            local file_with_ext = vim.fn.expand "%"
+
+            -- 3. Determine the command
+            local cmd
+            if vim.fn.filereadable "Makefile" == 1 then
+                -- Standard practice: run make, then the binary named after the file
+                cmd = string.format("make && ./%s", file_no_ext)
+            else
+                -- Compiles 'main.c' into 'main' and runs it
+                cmd = string.format("gcc %s -o %s && ./%s", file_with_ext, file_no_ext, file_no_ext)
+            end
+
+            -- 4. Execute and clean up
+            -- Using 'split | term' as requested
+            vim.cmd("split | term " .. cmd)
+
+            -- Optional: Auto-scroll to bottom of terminal
+            vim.cmd "startinsert"
+        end, { buffer = bufnr, desc = "Run C Project/File" })
     end,
 })
 
