@@ -14,7 +14,8 @@ local servers = {
     "css-variables-language-server",
     "tinymist",
     "jdtls",
-    "kotlin_language_server",
+    "kotlin_lsp",
+    -- "kotlin_language_server",
 }
 
 -- Fix for lsp-line.nvim
@@ -104,15 +105,21 @@ vim.lsp.config("css-variables-language-server", {
 })
 
 vim.lsp.config("qmlls", {
-    cmd = { "qmlls6", "-E" },
+    cmd = { "qmlls" },
 })
 
 vim.lsp.config("svelte", {
     filetypes = { "svelte" },
 })
 
-vim.lsp.config("kotlin_language_server", {
+vim.lsp.config("kotlin_lsp", {
     filetypes = { "kotlin", "kt", "kts" },
+    -- root_dir = require("lspconfig.util").root_pattern(
+    --     "settings.gradle",
+    --     "settings.gradle.kts",
+    --     "build.gradle",
+    --     "build.gradle.kts"
+    -- ),
 })
 
 vim.lsp.config("cssls", {
@@ -155,7 +162,7 @@ vim.lsp.config("ltex_plus", {
 
 vim.lsp.config("tinymist", {
     cmd = { "tinymist" },
-    filetypes = { "typst", "yaml" },
+    filetypes = { "typst" },
     settings = {
         formatterMode = "typstyle",
         exportPdf = "onType",

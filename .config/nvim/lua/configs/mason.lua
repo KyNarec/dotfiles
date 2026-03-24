@@ -35,7 +35,8 @@ local pkgs = {
     "hyprls",
 
     -- Kotlin
-    "kotlin-language-server",
+    -- "kotlin-language-server",
+    "kotlin-lsp",
     "ktlint",
 
     -- Lua

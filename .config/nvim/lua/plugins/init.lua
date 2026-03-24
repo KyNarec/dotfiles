@@ -214,7 +214,11 @@ return {
         ft = { "markdown" },
         build = function()
             vim.fn["mkdp#util#install"]()
-            vim.g.mkdp_browser = "brave"
+            -- vim.g.mkdp_browser = "zen-browser"
+        end,
+        config = function()
+            -- Set it here so it's always applied on load
+            -- vim.g.mkdp_browser = "zen.desktop"
         end,
     },
 
