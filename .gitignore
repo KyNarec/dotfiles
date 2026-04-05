@@ -6,3 +6,5 @@
 /.local/share/nvim/nvim*
 /.local/share/nvim/telescope_history
 /.config/nvim/lazy-lock.json
+
+/.config/quickshell/.qmlls.ini
