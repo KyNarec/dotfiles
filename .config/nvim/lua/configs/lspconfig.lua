@@ -15,6 +15,7 @@ local servers = {
     "tinymist",
     "jdtls",
     "kotlin_lsp",
+    "qmlls",
     -- "kotlin_language_server",
 }
 
