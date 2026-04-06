@@ -4,6 +4,7 @@ import Quickshell
 import Quickshell.Hyprland
 import Quickshell.Io
 import Quickshell.Services.SystemTray
+import "../Services"
 
 PanelWindow {
     id: root
@@ -357,6 +358,16 @@ PanelWindow {
             width: 2
             height: 16
             color: root.colMuted
+        }
+
+        Battery {
+            batteryVisisble: BatteryService.batteryAvailable
+        }
+        Rectangle {
+            width: 2
+            height: 16
+            color: root.colMuted
+            visible: BatteryService.batteryAvailable
         }
 
         Rectangle {
