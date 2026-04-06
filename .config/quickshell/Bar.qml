@@ -108,15 +108,37 @@ PanelWindow {
         }
 
         Text {
-            text: {
-                var window = Hyprland.activeToplevel;
-                var focusedWs = Hyprland.focusedWorkspace;
+            id: activeWindow
+            text: activeTitle
 
-                if (window && focusedWs && window.workspace.id === focusedWs.id) {
-                    return window.title.substring(0, 40);
+            property string activeTitle: ""
+
+            Process {
+                id: hyprEvents
+                command: ["sh", "-c", "nc -U /run/user/$(id -u)/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock"]
+                running: true
+
+                stdout: SplitParser {
+                    onRead: data => {
+                        let line = data.toString();
+
+                        console.log(data.toString());
+
+                        if (line.startsWith("activewindow>>")) {
+                            let content = line.substring(14).trim();
+
+                            if (content === "" || content === "none" || content === ",") {
+                                activeWindow.activeTitle = "";
+                            } else {
+                                let parts = content.split(",");
+                                // If there's a comma, the title is the second part
+                                activeWindow.activeTitle = parts.length > 1 ? parts.slice(1).join(",") : parts[0];
+                            }
+                        }
+                    }
                 }
-                return "";
             }
+
             color: root.colFg
 
             font {
@@ -132,14 +154,7 @@ PanelWindow {
             width: 2
             height: 16
             color: root.colMuted
-            visible: {
-                var window = Hyprland.activeToplevel;
-                var focusedWs = Hyprland.focusedWorkspace;
-                if (window && focusedWs && window.workspace.id === focusedWs.id) {
-                    return true;
-                }
-                return false;
-            }
+            visible: activeWindow.activeTitle !== ""
         }
 
         Item {
