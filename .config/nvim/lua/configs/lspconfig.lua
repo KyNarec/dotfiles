@@ -51,6 +51,7 @@ vim.lsp.config("bashls", {
 })
 
 vim.lsp.config("texlab", {
+    on_attach = function(client, bufnr) end,
     settings = {
         texlab = {
             diagnostics = {
@@ -85,7 +86,7 @@ vim.lsp.config("clangd", {
                 cmd = string.format("make && ./%s", file_no_ext)
             else
                 -- Compiles 'main.c' into 'main' and runs it
-                cmd = string.format("gcc %s -o %s && ./%s", file_with_ext, file_no_ext, file_no_ext)
+                cmd = string.format("gcc %s -o %s -lm && ./%s", file_with_ext, file_no_ext, file_no_ext)
             end
 
             -- 4. Execute and clean up
