@@ -8,3 +8,4 @@
 /.config/nvim/lazy-lock.json
 
 /.config/quickshell/.qmlls.ini
+/.luarc.json
