@@ -1,0 +1,7 @@
+require("env")
+require("startup")
+require("keybinds")
+require("configs")
+require("layout")
+require("laptops")
+require("monitors")
