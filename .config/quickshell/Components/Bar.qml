@@ -89,7 +89,11 @@ PanelWindow {
                         hoverEnabled: true
                         anchors.fill: parent
                         width: 20
-                        onClicked: Hyprland.dispatch("workspace " + (index + 1))
+                        onClicked: {
+                            let ws = index + 1;
+                            // We pass the full Lua function call as the dispatch argument
+                            Hyprland.dispatch("hl.dsp.focus({ workspace = '" + ws + "' })");
+                        }
                         cursorShape: Qt.PointingHandCursor
                     }
 
