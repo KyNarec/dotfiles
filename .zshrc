@@ -57,6 +57,9 @@ alias update="sudo pacman -Syyu"
 alias t="tmux"
 alias 720="yt-dlp --no-mtime -S 'res:720' -R 'infinite' --file-access-retries 'infinite' --fragment-retries 'infinite' -o '%(title)s.%(ext)s' -P '~/Videos/'"
 alias 1080="yt-dlp --no-mtime -S 'res:1080' -R 'infinite' --file-access-retries 'infinite' --fragment-retries 'infinite' -o '%(title)s.%(ext)s' -P '~/Videos/'"
+alias claude-lms="export ANTHROPIC_BASE_URL=http://localhost:1234 && export ANTHROPIC_AUTH_TOKEN=lmstudio && claude"
+alias mirrorSOff="scrcpy --render-driver=opengl --video-codec=h264 --video-bit-rate=8M --max-fps=90 --turn-screen-off"
+alias mirror="scrcpy --render-driver=opengl --video-codec=h264 --video-bit-rate=8M --max-fps=90"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -69,3 +72,7 @@ export NVM_DIR="$HOME/.nvm"
 
 # zoxide
 eval "$(zoxide init --cmd cd zsh)"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/home/ky/.lmstudio/bin"
+# End of LM Studio CLI section
