@@ -70,3 +70,29 @@ hl.window_rule({
     center = true,
     size = { "(monitor_w*0.4)", "(monitor_h*0.5)" }
 })
+
+hl.window_rule({
+    match = {
+        class = "Minecraft.*"
+    },
+    float = true,
+    center = true,
+})
+
+
+hl.window_rule({
+    match = {
+        class = "Lunar Client.*"
+    },
+    float = true,
+    center = true,
+})
+
+hl.window_rule({
+    match = {
+        class = "Waydroid"
+    },
+    float = false,
+    center = true,
+    size = { "500", "1034" }
+})

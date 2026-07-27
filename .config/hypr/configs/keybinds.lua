@@ -30,15 +30,21 @@ hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.window.kill())
 
 -- wallpaper stuff
-hl.bind(mainMod .. " + W", hl.dsp.exec_cmd(userScripts .. "WallpaperSelect.sh"))
-hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd(userScripts .. "WallpaperEffects.sh"))
+-- hl.bind(mainMod .. " + W", hl.dsp.exec_cmd(userScripts .. "WallpaperSelect.sh"))
+hl.bind(mainMod .. " + W", hl.dsp.exec_cmd("vicinae vicinae://launch/@sovereign/store.vicinae.awww-switcher/wpgrid"))
+-- hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd(userScripts .. "WallpaperEffects.sh"))
 hl.bind(mainMod .. " + ALT + W", hl.dsp.exec_cmd(userScripts .. "WallpaperEngineSelect.sh"))
 
 -- emoji picker
-hl.bind(mainMod .. " + ALT + E", hl.dsp.exec_cmd(scripts .. "RofiEmoji.sh"))
+-- hl.bind(mainMod .. " + ALT + E", hl.dsp.exec_cmd(scripts .. "RofiEmoji.sh"))
+hl.bind(mainMod .. " + ALT + E", hl.dsp.exec_cmd("vicinae vicinae://launch/core/search-emojis"))
 
 -- clipboard manager
-hl.bind(mainMod .. " + V", hl.dsp.exec_cmd(scripts .. "ClipManager.sh"))
+-- hl.bind(mainMod .. " + V", hl.dsp.exec_cmd(scripts .. "ClipManager.sh"))
+hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("vicinae vicinae://launch/clipboard/history"))
+
+-- list bluetooth devices
+hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("vicinae vicinae://launch/@Gelei/store.vicinae.bluetooth/devices"))
 
 -- logout & lock screen
 hl.bind(mainMod .. " + L", hl.dsp.exec_cmd(scripts .. "LockScreen.sh"))

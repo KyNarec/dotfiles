@@ -1,0 +1,89 @@
+// This configuration is merged with the default vicinae configuration file, which you can obtain by running the `vicinae config default` command.
+// Every item defined in this file takes precedence over the values defined in the default config or any other imported file.
+//
+// You can make manual edits to this file, however you should keep in mind that this file may be written to by vicinae when a configuration change is made through the GUI.
+// When that happens, any custom comments or formatting will be lost.
+//
+// If you want to maintain a configuration file with your own comments and formatting, you should create a separate file and add it to the 'imports' array.
+//
+// Learn more about configuration at https://docs.vicinae.com/config
+
+{
+   "$schema": "https://vicinae.com/schemas/config.json",
+   "theme": {
+      "dark": {
+         "name": "catppuccin-mocha"
+      }
+   },
+   "launcher_window": {
+      "opacity": 1,
+      "client_side_decorations": {
+         "enabled": false
+      }
+   },
+   "providers": {
+      "@sovereign/store.vicinae.awww-switcher": {
+         "preferences": {
+            "wallpaperPath": "~/Pictures/wallpapers",
+            "colorGenTool": "none",
+            "gridRows": "4",
+            "postProduction": "no",
+            "showImageDetails": true,
+            "toggleVicinaeSetting": true,
+            "transitionDuration": "2",
+            "transitionFPS": "60",
+            "transitionStep": "90",
+            "transitionType": "center",
+            "postCommand": "cp ${wallpaper} ~/.config/hypr/wallpaper_effects/.wallpaper_current"
+         },
+         "entrypoints": {
+            "wprandom": {
+               "enabled": false
+            }
+         }
+      },
+      "applications": {
+         "entrypoints": {
+            "waydroid.com.android.calculator2": {
+               "enabled": false
+            },
+            "waydroid.com.android.deskclock": {
+               "enabled": false
+            },
+            "waydroid.com.android.documentsui": {
+               "enabled": false
+            },
+            "waydroid.com.android.gallery3d": {
+               "enabled": false
+            },
+            "waydroid.com.android.vending": {
+               "enabled": false
+            },
+            "waydroid.com.google.android.apps.messaging": {
+               "enabled": false
+            },
+            "waydroid.com.google.android.contacts": {
+               "enabled": false
+            },
+            "waydroid.com.kynarec.kmusic.debug": {
+               "enabled": false
+            },
+            "waydroid.org.lineageos.aperture": {
+               "enabled": false
+            },
+            "waydroid.org.lineageos.etar": {
+               "enabled": false
+            }
+         }
+      },
+      "browser-extension": {
+         "enabled": false
+      },
+      "power": {
+         "enabled": true
+      },
+      "raycast-compat": {
+         "enabled": false
+      }
+   }
+}

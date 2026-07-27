@@ -1,7 +1,7 @@
 hl.env("CLUTTER_BACKEND", "wayland")
 -- hl.env("GDK_BACKEND", { "wayland", "x11" })
 hl.env("QT_AUTO_SCREEN_SCALE_FACTOR", "1")
-hl.env("QT_QPA_PLATFORM", "wayland")
+hl.env("QT_QPA_PLATFORM", "wayland;xcb")
 hl.env("QT_QPA_PLATFORMTHEME", "qt5ct")
 hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
 hl.env("QT_SCALE_FACTOR", "1")
@@ -31,3 +31,6 @@ hl.env("EGL_PLATFORM", "wayland")
 -- Android Studio
 hl.env("IDE_USE_WAYLAND", "1")
 hl.env("_JAVA_AWT_WM_MONREPARENTING", "1")
+
+-- Tauri applications
+hl.env("WEBKIT_DISABLE_DMABUF_RENDERER", "1")
