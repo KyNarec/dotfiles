@@ -23,13 +23,13 @@ hl.monitor({
 hl.monitor({
     output = "eDP-1",
     mode = "highrr",
-    position = "auto",
+    position = "1920x1080",
     scale = "1.458333"
 })
 
-hl.monitor({
-    output = "DP-5",
-    mode = "highres",
-    position = "3849x0",
-    scale = "2"
-})
+-- hl.monitor({
+--     output = "DP-5",
+--     mode = "highres",
+--     position = "3849x0",
+--     scale = "2"
+-- })
