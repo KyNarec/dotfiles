@@ -1,8 +1,0 @@
-Config(
-  max_entries: 3,
-  directories: [WatchDir(
-    path: "/home/ky",
-    recursive: true,
-    ignored: [],
-  )]
-)

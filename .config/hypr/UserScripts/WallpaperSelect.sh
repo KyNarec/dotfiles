@@ -1,6 +1,8 @@
 #!/bin/bash
-# /* ---- 💫 https://github.com/JaKooLit 💫 ---- */ 
-# This script for selecting wallpapers (SUPER W)
+# /* ---- 💫 https://github.com/JaKooLit 💫 ---- */
+# This script for selecting wallpapers
+#
+# @Deprecated in favor of vicinae
 
 # WALLPAPERS PATH
 wallDIR="$HOME/Pictures/wallpapers"

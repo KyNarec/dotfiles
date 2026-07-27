@@ -4,7 +4,6 @@ neovim
 nemo
 stow
 btop
-#yay
 fzf
 eza
 ffmpeg
@@ -20,18 +19,17 @@ qt6-multimedia-ffmpeg
 qt6-multimedia
 npm
 loupe
+zed
 )
 
 install_yay=(
 qwinff
-anyrun
 vesktop
 brave-bin
 gearlever
 localsend
 visual-studio-code-bin
-#p7zip-gui
-# tela-circle-icon-theme-all
+vicinae-bin
 )
 
 install_latex=(
@@ -42,13 +40,13 @@ biber
 evince
 )
 
-read -p "$(tput setaf 6)Do you want to install advanced hyprland configs? May break your Hyprland config... (y/n(recomended))$(tput sgr0)" hypr 
+read -p "$(tput setaf 6)Do you want to install advanced hyprland configs? May break your Hyprland config... (y/n(recomended))$(tput sgr0)" hypr
 read -p "$(tput setaf 6)Do you want to install Wallpapers?(Will delete all previous wallpapers!)(y/n)$(tput sgr0)" wallpapers
 read -p "$(tput setaf 6)Do you want custom german spell checking in neovim?(y/n)$(tput sgr0)" spellcheck
 read -p "$(tput setaf 6)Do you want to configure Wifi?(y/n)$(tput sgr0)" wifi
 read -p "$(tput setaf 6)Do you want to install fstab file?(y/n)$(tput sgr0)" fstab
 read -p "$(tput setaf 6)Do you want to configure SSH?(y/n)$(tput sgr0)" ssh
-read -p "$(tput setaf 6)Do you want to install texlive (LaTeX)?(y/n(recomended))$(tput sgr0)" latex 
+read -p "$(tput setaf 6)Do you want to install texlive (LaTeX)?(y/n(recomended))$(tput sgr0)" latex
 
 # Pacman candy etc.
 sudo cp -f ~/dotfiles/configs/pacman.conf /etc/
@@ -61,7 +59,7 @@ for PKG1 in "${install_pacman[@]}"; do
   sudo pacman -S --noconfirm "$PKG1"
 done
 
-for PKG1 in "${install_yay[@]}"; do 
+for PKG1 in "${install_yay[@]}"; do
   yay -S --noconfirm "$PKG1"
 done
 
@@ -86,12 +84,12 @@ rm ~/.config/kitty/kitty.conf
 echo -e "$(tput setaf 2)Setting Nemo as default file manager\n$(tput sgr0)"
 xdg-mime default nemo.desktop inode/directory application/x-gnome-saved-search
 echo -e "$(tput setaf 2)Setting Kitty as default Terminal in Nemo\n$(tput sgr0)"
-gsettings set org.cinnamon.desktop.default-applications.terminal exec kitty   
+gsettings set org.cinnamon.desktop.default-applications.terminal exec kitty
 
 if [ "$hypr" == "y" ]; then
 echo -e "$(tput setaf 2)Applying custom Hyprland dotfiles\n$(tput sgr0)"
 
-# hyprland configs 
+# hyprland configs
 rm ~/.config/hypr/UserScripts/QuickEdit.sh
 rm ~/.config/hypr/UserScripts/WallpaperSelect.sh
 
@@ -154,7 +152,7 @@ echo -e "$(tput setaf 2)Installing NetworkManager\n$(tput sgr0)"
 sudo pacman -S --noconfirm networkmanager
 echo
 echo -e "$(tput setaf 2)Now configuring Wifi\n$(tput sgr0)"
-sudo systemctl start NetworkManager 
+sudo systemctl start NetworkManager
 sudo nmcli r wifi on
 echo -e "$(tput setaf 2)Configured Wifi\n$(tput sgr0)"
 fi
@@ -162,7 +160,7 @@ fi
 # fstab
 if [ "$fstab" == "y"]; then
   echo -e "$(tput setaf 2)Copying fstab file\n$(tput sgr0)"
-  cp -f ~/dotfiles/configs/fstab /etc/ 
+  cp -f ~/dotfiles/configs/fstab /etc/
 fi
 
 # SSH
