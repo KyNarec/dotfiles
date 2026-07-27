@@ -22,6 +22,11 @@
       }
    },
    "providers": {
+      "@Gelei/store.vicinae.bluetooth": {
+         "preferences": {
+            "connectionToggleable": true
+         }
+      },
       "@sovereign/store.vicinae.awww-switcher": {
          "preferences": {
             "wallpaperPath": "~/Pictures/wallpapers",
