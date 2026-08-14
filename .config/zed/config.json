@@ -1,0 +1,113 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "agent_servers": {
+    "opencode": {
+      "default_config_options": {
+        "model": "opencode/deepseek-v4-flash-free"
+      },
+      "type": "registry"
+    }
+  },
+  "language_models": {
+    "llama.cpp": {
+      "api_url": "http://localhost:1234"
+    }
+  },
+  "edit_predictions": {
+    "mode": "subtle",
+    "provider": "copilot"
+  },
+  "ssh_connections": [
+    {
+      "host": "server",
+      "args": [],
+      "projects": [
+        {
+          "paths": [
+            "/home/ky"
+          ]
+        }
+      ]
+    }
+  ],
+  "project_panel": {
+    "dock": "right",
+  },
+  "outline_panel": {
+    "dock": "left",
+  },
+  "collaboration_panel": {
+    "dock": "left",
+  },
+  "agent": {
+    "default_profile": "write",
+    "default_model": {
+      "provider": "llama.cpp",
+      "model": "unsloth/gemma-4-E4B-it-GGUF:UD-Q8_K_XL",
+      "enable_thinking": true
+    },
+    "dock": "right",
+    "favorite_models": [],
+    "model_parameters": [],
+  },
+  "git_panel": {
+    "tree_view": true,
+    "dock": "left",
+  },
+  "icon_theme": "Catppuccin Mocha",
+  "vim_mode": true,
+  "base_keymap": "JetBrains",
+  "ui_font_size": 16,
+  "buffer_font_size": 15,
+  "theme": {
+    "mode": "dark",
+    "light": "Ayu Light",
+    "dark": "Catppuccin Macchiato",
+  },
+  "languages": {
+    "Kotlin": {
+      "language_servers": ["kotlin-lsp"],
+    },
+   	"Typst": {
+			// Disable soft wrap
+			"soft_wrap": "none",
+		},
+  },
+
+  "lsp": {
+    // "kotlin-lsp": {
+    //   "binary": {
+    //     "path": "/usr/bin/kotlin-lsp",
+    //       "arguments": ["--stdio"],
+    //     },
+    //   },
+		"tinymist": {
+			"initialization_options": {
+				// Enable background preview
+				// Server will be running on 127.0.0.1:23635
+				"preview": {
+					"background": {
+						"enabled": true,
+					},
+				},
+			},
+
+			"settings": {
+				// Compile on save
+				// This will compile a PDF for the `main.typ` file in the project root.
+				"exportPdf": "onSave",
+				"outputPath": "$root/$name",
+
+				// Enable formatter
+				"formatterMode": "typstyle",
+			}
+		}
+	},
+}
