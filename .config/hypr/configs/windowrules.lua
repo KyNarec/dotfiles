@@ -37,7 +37,7 @@ hl.window_rule({
 
 hl.window_rule({
     match = {
-        class = "[Ll]ocal[Ss]end"
+        class = "org.localsend.localsend_app"
     },
     -- workspace = "silent 9"
     workspace = "9 silent"
