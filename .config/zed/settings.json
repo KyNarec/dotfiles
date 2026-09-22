@@ -11,21 +11,70 @@
   "agent_servers": {
     "opencode": {
       "default_config_options": {
-        "model": "opencode/deepseek-v4-flash-free"
+        "mode": "build",
+        "effort": "xhigh",
+        "model": "opencode/muse-spark-1.3-contributor-free",
       },
-      "type": "registry"
-    }
+      "type": "registry",
+    },
   },
   "language_models": {
     "llama.cpp": {
-      "api_url": "http://localhost:1234"
-    }
+      "api_url": "http://localhost:1234",
+    },
   },
   "edit_predictions": {
     "mode": "subtle",
-    "provider": "copilot"
+    "provider": "copilot",
   },
   "ssh_connections": [
+    {
+      "host": "server",
+      "args": [],
+      "projects": [
+        {
+          "paths": [
+            "/home/ky"
+          ]
+        }
+      ]
+    },
+    {
+      "host": "141.144.245.145",
+      "username": "ubuntu",
+      "args": [
+        "-i",
+        "~/.ssh/ssh-key-2026-09-10.key"
+      ],
+      "projects": [
+        {
+          "paths": [
+            "/home/ubuntu"
+          ]
+        }
+      ]
+    },
+    {
+      "host": "oracle-vps",
+      "args": [],
+      "projects": []
+    },
+    {
+      "host": "server_root",
+      "args": [],
+      "projects": [
+        {
+          "paths": [
+            "/home"
+          ]
+        },
+        {
+          "paths": [
+            "/home/ky"
+          ]
+        }
+      ]
+    },
     {
       "host": "server",
       "args": [],
@@ -52,7 +101,7 @@
     "default_model": {
       "provider": "llama.cpp",
       "model": "unsloth/gemma-4-E4B-it-GGUF:UD-Q8_K_XL",
-      "enable_thinking": true
+      "enable_thinking": true,
     },
     "dock": "right",
     "favorite_models": [],
@@ -76,10 +125,10 @@
     "Kotlin": {
       "language_servers": ["kotlin-lsp"],
     },
-   	"Typst": {
-			// Disable soft wrap
-			"soft_wrap": "none",
-		},
+    "Typst": {
+      // Disable soft wrap
+      "soft_wrap": "none",
+    },
   },
 
   "lsp": {
@@ -89,26 +138,31 @@
     //       "arguments": ["--stdio"],
     //     },
     //   },
-		"tinymist": {
-			"initialization_options": {
-				// Enable background preview
-				// Server will be running on 127.0.0.1:23635
-				"preview": {
-					"background": {
-						"enabled": true,
-					},
-				},
-			},
+    "tinymist": {
+      "initialization_options": {
+        // Enable background preview
+        // Server will be running on 127.0.0.1:23635
+        "preview": {
+          "background": {
+            "enabled": true,
+            "args": [
+              "--data-plane-host=127.0.0.1:23635",
+              "--invert-colors=never",
+            ],
+          },
+          // "theme": "light",
+        },
+      },
 
-			"settings": {
-				// Compile on save
-				// This will compile a PDF for the `main.typ` file in the project root.
-				"exportPdf": "onSave",
-				"outputPath": "$root/$name",
+      "settings": {
+        // Compile on save
+        // This will compile a PDF for the `main.typ` file in the project root.
+        "exportPdf": "onSave",
+        "outputPath": "$root/$name",
 
-				// Enable formatter
-				"formatterMode": "typstyle",
-			}
-		}
-	},
+        // Enable formatter
+        "formatterMode": "typstyle",
+      },
+    },
+  },
 }
