@@ -7,7 +7,7 @@ export ZSH="$HOME/.oh-my-zsh"
 #ZSH_THEME="cloud"
 ZSH_THEME="refined"
 
-plugins=( 
+plugins=(
     git
     archlinux
     zsh-autosuggestions
@@ -49,7 +49,7 @@ alias vim=nvim
 alias v=nvim
 alias pull="git pull --rebase"
 alias checkout="git checkout -b"
-alias commit="git add . && git commit -a -m" 
+alias commit="git add . && git commit -a -m"
 alias push="git push origin main"
 alias status="git status"
 alias c="clear"
@@ -60,6 +60,8 @@ alias 1080="yt-dlp --no-mtime -S 'res:1080' -R 'infinite' --file-access-retries 
 alias claude-lms="export ANTHROPIC_BASE_URL=http://localhost:1234 && export ANTHROPIC_AUTH_TOKEN=lmstudio && claude"
 alias mirrorSOff="scrcpy --render-driver=opengl --video-codec=h264 --video-bit-rate=8M --max-fps=90 --turn-screen-off"
 alias mirror="scrcpy --render-driver=opengl --video-codec=h264 --video-bit-rate=8M --max-fps=90"
+
+export MANPAGER='nvim +Man!'
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
