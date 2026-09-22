@@ -124,7 +124,7 @@ return {
 
     {
         "mrcjkb/rustaceanvim",
-        version = "^7", -- Recommended
+        version = "^7",  -- Recommended
         lazy = false,
         ft = { "rust" }, -- Load only for Rust files
     },
@@ -158,30 +158,30 @@ return {
         end,
     },
 
-    {
-        "nvim-treesitter/nvim-treesitter",
-        opts = {
-            ensure_installed = {
-                "python",
-                "c",
-                "cpp",
-                "lua",
-                "rust",
-                "java",
-                "kotlin",
-                "bash",
-                "csv",
-                "json",
-                "hyprlang",
-                "markdown",
-                "xml",
-                "yaml",
-                "qmljs",
-                "svelte",
-                "css",
-            },
-        },
-    },
+    -- {
+    --     "nvim-treesitter/nvim-treesitter",
+    --     opts = {
+    --         ensure_installed = {
+    --             "python",
+    --             "c",
+    --             "cpp",
+    --             "lua",
+    --             "rust",
+    --             "java",
+    --             "kotlin",
+    --             "bash",
+    --             "csv",
+    --             "json",
+    --             "hyprlang",
+    --             "markdown",
+    --             "xml",
+    --             "yaml",
+    --             "qmljs",
+    --             "svelte",
+    --             "css",
+    --         },
+    --     },
+    -- },
 
     -- LaTeX support
     {
@@ -276,7 +276,10 @@ return {
                 },
             },
             notifier = { enabled = true },
-            quickfile = { enabled = true },
+            quickfile = {
+                enabled = true,
+                exclude = { "markdown" }
+            },
             scope = { enabled = true },
             scroll = { enabled = true },
             statuscolumn = { enabled = true },
