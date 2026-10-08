@@ -23,7 +23,8 @@ hl.monitor({
 hl.monitor({
     output = "eDP-1",
     mode = "highrr",
-    position = "1920x1080",
+    -- position = "1920x1080",
+    position = "auto",
     scale = "1.458333"
 })
 
