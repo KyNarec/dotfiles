@@ -151,3 +151,7 @@ hl.bind("XF86AudioPlay", media.pause)
 hl.bind("XF86AudioPrev", media.previous)
 hl.bind("XF86AudioNext", media.next)
 hl.bind("XF86AudioStop", media.stop)
+
+
+-- login to uni network
+hl.bind("SUPER + I", hl.dsp.exec_cmd("~/temp/login.sh"))
