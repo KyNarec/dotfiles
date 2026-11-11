@@ -9,6 +9,12 @@
 {
   "cli_default_open_behavior": "existing_window",
   "agent_servers": {
+    "antigravity-acp": {
+      "default_config_options": {
+        "model": "gemini-4-argon"
+      },
+      "type": "registry"
+    },
     "opencode": {
       "default_config_options": {
         "mode": "build",
@@ -99,8 +105,9 @@
   "agent": {
     "default_profile": "write",
     "default_model": {
-      "provider": "llama.cpp",
-      "model": "unsloth/gemma-4-E4B-it-GGUF:UD-Q8_K_XL",
+      "effort": "medium",
+      "provider": "google",
+      "model": "gemini-4-argon",
       "enable_thinking": true,
     },
     "dock": "right",
@@ -113,7 +120,6 @@
   },
   "icon_theme": "Catppuccin Mocha",
   "vim_mode": true,
-  "base_keymap": "JetBrains",
   "ui_font_size": 16,
   "buffer_font_size": 15,
   "theme": {
